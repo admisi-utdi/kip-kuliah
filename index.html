@@ -127,6 +127,10 @@
     .tl-tgl { font-size: 0.9rem; color: var(--abu3); margin-top: 2px; }
     .tl-badge { background: var(--mint); color: var(--ungu); font-weight: 700; font-size: 0.6rem; padding: 2px 12px; border-radius: 30px; letter-spacing: 0.04em; }
 
+    /* KIP CARD WRAP — container card abu seperti seleksi-block */
+    .kip-card-wrap { background: var(--abu1); border-radius: 16px; padding: 0 20px 12px; margin-top: 16px; }
+    .kip-card-wrap .card-section-header { padding: 16px 0 12px; }
+
     /* CARD SECTION HEADER — dipakai di manfaat, utdi, seleksi */
     .card-section-header { display: flex; align-items: center; gap: 10px; padding: 14px 0 10px; border-bottom: 1px solid var(--abu2); margin-bottom: 2px; }
     .card-section-header i { font-size: 1.125rem; color: var(--biru); }
@@ -263,11 +267,14 @@
     <div class="wrap section">
       <span class="label oranye">Yang Kamu Dapat</span>
       <h2 id="manfaat-title">Apa Keuntungan KIP Kuliah?</h2>
-      <div class="manfaat-list" id="manfaat-list">
+      <div class="kip-card-wrap">
+        <div class="card-section-header"><i class="ti ti-gift"></i><span>Keuntungan program</span><span class="mode-badge">KIP Kuliah</span></div>
+        <div id="manfaat-list">
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Biaya pendidikan ditanggung pemerintah</strong><p>Biaya pendidikan ditanggung pemerintah selama masa studi berlangsung</p></div></div>
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Bantuan biaya hidup</strong><p>Mendapat bantuan biaya hidup sesuai ketentuan program</p></div></div>
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Berlaku di perguruan tinggi swasta</strong><p>Dapat digunakan untuk kuliah di PTS yang menerima KIP Kuliah</p></div></div>
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Karier lebih baik</strong><p>Kesempatan meraih pendidikan tinggi dan karier yang lebih baik</p></div></div>
+        </div>
       </div>
     </div>
 
@@ -275,7 +282,9 @@
     <div class="wrap section">
       <span class="label ungu">Pilihan Tepat</span>
       <h2 id="utdi-title">Mengapa Memilih UTDI?</h2>
-      <div class="utdi-grid" id="utdi-grid">
+      <div class="kip-card-wrap">
+        <div class="card-section-header"><i class="ti ti-building-community"></i><span>Keunggulan UTDI</span><span class="mode-badge">Sejak 1979</span></div>
+        <div id="utdi-grid">
         <div class="utdi-item">
           <div class="utdi-emoji">💻</div>
           <div>
@@ -476,14 +485,12 @@
     if (!u.items || !u.items.length) return;
     var el = document.getElementById('utdi-grid');
     if (!el) return;
-    var header = '<div class="card-section-header"><i class="ti ti-building-community"></i><span>Keunggulan UTDI</span><span class="mode-badge">Sejak 1979</span></div>';
-    var items = u.items.map(function(item) {
+    el.innerHTML = u.items.map(function(item) {
       var j = item.judul || '';
       var emoji = j.substring(0,2);
       var title = j.substring(2).trim();
       return '<div class="utdi-item"><div class="utdi-emoji">'+emoji+'</div><div><h3>'+title+'</h3><p>'+(item.deskripsi||'')+'</p></div></div>';
     }).join('');
-    el.innerHTML = header + items;
   }
 
   function renderManfaat(m) {
@@ -493,14 +500,12 @@
     if (!m.items || !m.items.length) return;
     var el = document.getElementById('manfaat-list');
     if (!el) return;
-    var header = '<div class="card-section-header"><i class="ti ti-gift"></i><span>Keuntungan program</span><span class="mode-badge">KIP Kuliah</span></div>';
-    var items = m.items.map(function(item) {
+    el.innerHTML = m.items.map(function(item) {
       var j = item.judul || '';
       var emoji = j.substring(0,2);
       var title = j.substring(2).trim();
       return '<div class="manfaat-row"><span class="manfaat-icon">'+emoji+'</span><div><strong>'+title+'</strong><p>'+(item.deskripsi||'')+'</p></div></div>';
     }).join('');
-    el.innerHTML = header + items;
   }
 
   function renderHero(h) {
