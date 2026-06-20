@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>KIP Kuliah · UTDI</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/admisi-utdi/assets/main/UTDI%201B.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
@@ -19,7 +20,7 @@
     html, body { background: var(--putih); color: var(--ungu); font-family: var(--font); -webkit-font-smoothing: antialiased; }
     body { padding-bottom: 80px; }
     a { text-decoration: none; color: inherit; }
-    .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+    .wrap { max-width: 100%; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
 
     /* loading */
     #loading { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; gap: 16px; }
@@ -192,7 +193,7 @@
     .btn-sticky:hover { transform: scale(1.04); }
 
     @media (max-width: 480px) {
-      .wrap { padding: 0 16px; }
+      .wrap { padding: 0 16px; max-width: 100%; }
       .hero h1 { font-size: 1.9rem; }
       .tentang-grid, .manfaat-grid { grid-template-columns: 1fr; }
       .section { padding: 32px 0; }
@@ -401,18 +402,12 @@
   })();
 
   function applyScale() {
+    // Di Vercel: tidak perlu scale, biarkan CSS responsive bekerja normal
+    // applyScale hanya aktif jika lebar iframe GAS sangat kecil (< 300px)
     var wrap = document.getElementById('scale-wrap');
     var w = window.innerWidth;
-    var design = 412;
-    if (w < design) {
-      var s = w / design;
-      wrap.style.transform = 'scale(' + s + ')';
-      wrap.style.width = design + 'px';
-      document.body.style.height = 'auto';
-    } else {
-      wrap.style.transform = 'scale(1)';
-      wrap.style.width = '100%';
-    }
+    wrap.style.transform = 'none';
+    wrap.style.width = '100%';
   }
   applyScale();
   window.addEventListener('resize', applyScale);
