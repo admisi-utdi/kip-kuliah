@@ -1105,19 +1105,36 @@
     }
 
     function renderHero(h) {
-      document.getElementById('hero-badge').textContent = h.badge_teks || '';
-      document.getElementById('hero-judul').innerHTML = (h.judul_baris1 || '') + '<br>' + (h.judul_baris2 || '');
-      document.getElementById('hero-tagline').textContent = h.tagline || '';
-      document.getElementById('h-s1').textContent = h.stat_mahasiswa || '';
-      document.getElementById('h-l1').textContent = h.stat_label1 || '';
-      document.getElementById('h-s2').textContent = h.stat_semester || '';
-      document.getElementById('h-l2').textContent = h.stat_label2 || '';
-      document.getElementById('h-s3').textContent = h.stat_biaya || '';
-      document.getElementById('h-l3').textContent = h.stat_label3 || '';
-      var link = h.link_daftar || '#';
-      document.getElementById('hero-btn').href = link;
-      document.getElementById('sticky-btn').href = link;
-      document.getElementById('hero-btn').innerHTML = (h.btn_teks || 'Daftar Sekarang') + ' <i class="ti ti-arrow-right"></i>';
+      const setText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val || '';
+      };
+      const setHTML = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = val || '';
+      };
+      const setAttr = (id, attr, val) => {
+        const el = document.getElementById(id);
+        if (el) el.setAttribute(attr, val || '#');
+      };
+    
+      setText('hero-badge', h.badge_teks);
+      setHTML('hero-judul', (h.judul_baris1 || '') + '<br>' + (h.judul_baris2 || ''));
+      setText('hero-tagline', h.tagline);
+      setText('h-s1', h.stat_mahasiswa);
+      setText('h-l1', h.stat_label1);
+      setText('h-s2', h.stat_semester);
+      setText('h-l2', h.stat_label2);
+      setText('h-s3', h.stat_biaya);
+      setText('h-l3', h.stat_label3);
+    
+      const link = h.link_daftar || '#';
+      setAttr('hero-btn', 'href', link);
+      setAttr('sticky-btn', 'href', link);
+    
+      const btnText = h.btn_teks || 'Daftar Sekarang';
+      const btnEl = document.getElementById('hero-btn');
+      if (btnEl) btnEl.innerHTML = btnText + ' <i class="ti ti-arrow-right"></i>';
     }
 
     // ---- JSONP load ----
