@@ -34,7 +34,6 @@
       -webkit-font-smoothing: antialiased;
     }
     a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; }
     .wrap {
       max-width: 640px;
       margin: 0 auto;
@@ -113,21 +112,6 @@
       box-shadow: 0 4px 12px rgba(255, 162, 19, 0.25);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 162, 19, 0.35); }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: transparent;
-      color: var(--biru);
-      font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 40px;
-      border: 1.5px solid var(--biru);
-      font-size: 0.9rem;
-      transition: 0.2s;
-    }
-    .btn-outline:hover { background: var(--biru); color: #fff; }
 
     /* ---- NAV ---- */
     nav {
@@ -592,31 +576,32 @@
     footer .contact a { color: #fff; }
     footer .contact a:hover { opacity: 1; }
 
-    /* ---- STICKY ---- */
+    /* ============================================================
+       STICKY BAR – BIRU #4B75FF
+    ============================================================ */
     .sticky-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: var(--putih);
+      background: var(--biru); /* #4B75FF */
       padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       z-index: 1050;
-      border-top: 1px solid var(--abu2);
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.04);
+      box-shadow: 0 -4px 24px rgba(75, 117, 255, 0.3);
     }
     .sticky-text {
       font-size: 0.75rem;
-      color: var(--abu3);
+      color: rgba(255, 255, 255, 0.75);
       line-height: 1.3;
     }
     .sticky-text strong {
       display: block;
       font-size: 0.9rem;
-      color: var(--ungu);
+      color: #fff;
       font-weight: 700;
     }
     .btn-sticky {
@@ -629,8 +614,9 @@
       border: none;
       cursor: pointer;
       transition: 0.2s;
+      white-space: nowrap;
     }
-    .btn-sticky:hover { transform: scale(1.03); }
+    .btn-sticky:hover { transform: scale(1.04); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
 
     /* ---- responsive ---- */
     @media (max-width: 480px) {
@@ -639,6 +625,8 @@
       .tentang-grid, .manfaat-grid { grid-template-columns: 1fr; }
       .section { padding: 32px 0; }
       h2 { font-size: 1.5rem; }
+      .sticky-text strong { font-size: 0.8rem; }
+      .btn-sticky { font-size: 0.75rem; padding: 6px 14px; }
     }
 
     /* scale fix for GAS */
@@ -811,7 +799,7 @@
   </div>
 </div>
 
-<!-- STICKY -->
+<!-- STICKY BAR – BIRU -->
 <div class="sticky-bar">
   <div class="sticky-text"><strong>KIP Kuliah UTDI 2026</strong>Pendaftaran dibuka · Gratis</div>
   <a href="#" id="sticky-btn" class="btn-sticky" target="_blank">Daftar Sekarang</a>
