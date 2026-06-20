@@ -17,6 +17,7 @@
       --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     html, body { background: var(--putih); color: var(--ungu); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+    body { padding-bottom: 80px; }
     a { text-decoration: none; color: inherit; }
     .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; }
 
@@ -184,7 +185,7 @@
     footer .contact a { color: #fff; }
 
     /* STICKY BAR — di luar scale-wrap */
-    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--ungu); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; z-index: 1050; border-top: 2px solid var(--oranye); box-shadow: 0 -4px 24px rgba(19,3,88,0.4); }
+    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--ungu); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; z-index: 9999; border-top: 2px solid var(--oranye); box-shadow: 0 -4px 24px rgba(19,3,88,0.4); }
     .sticky-text { font-size: 0.8125rem; font-family: var(--font); color: rgba(255,255,255,0.6); line-height: 1.3; }
     .sticky-text strong { display: block; font-size: 0.9375rem; font-family: var(--font); color: #fff; font-weight: 700; }
     .btn-sticky { background: var(--oranye); color: var(--ungu); font-weight: 700; padding: 8px 20px; border-radius: 40px; font-size: 0.875rem; font-family: var(--font); border: none; cursor: pointer; transition: 0.2s; white-space: nowrap; }
@@ -478,6 +479,25 @@
     if (c.btn_link) { var b=document.getElementById('cta-btn'); if(b) b.href=c.btn_link; }
   }
 
+
+  function stripEmoji(str) {
+    str = str.trim();
+    // Pakai codePointAt untuk handle surrogate pairs (emoji 4-byte)
+    var cp = str.codePointAt(0);
+    if (!cp) return { emoji: '', title: str };
+    var isEmoji = (cp >= 0x1F000 && cp <= 0x1FFFF) || 
+                  (cp >= 0x2600  && cp <= 0x27BF)  ||
+                  (cp >= 0xFE00  && cp <= 0xFE0F)  ||
+                  cp === 0x2705 || cp === 0x274C || cp === 0x2714;
+    if (!isEmoji) return { emoji: '', title: str };
+    // Hitung berapa char JS yang dipakai emoji (surrogate pair = 2 char)
+    var len = cp > 0xFFFF ? 2 : 1;
+    // Skip variation selector jika ada
+    var rest = str.slice(len);
+    if (rest.codePointAt(0) === 0xFE0F) rest = rest.slice(1);
+    return { emoji: str.slice(0, str.length - rest.trimStart().length), title: rest.trimStart() };
+  }
+
   function renderUTDI(u) {
     if (!u) return;
     var t = document.getElementById('utdi-title');
@@ -486,11 +506,8 @@
     var el = document.getElementById('utdi-grid');
     if (!el) return;
     el.innerHTML = u.items.map(function(item) {
-      var j = (item.judul || '').trim();
-      var spaceIdx = j.indexOf(' ');
-      var emoji = spaceIdx > 0 ? j.substring(0, spaceIdx) : '';
-      var title = spaceIdx > 0 ? j.substring(spaceIdx+1).trim() : j;
-      return '<div class="utdi-item"><div class="utdi-emoji">'+emoji+'</div><div><h3>'+title+'</h3><p>'+(item.deskripsi||'')+'</p></div></div>';
+      var p = stripEmoji(item.judul || '');
+      return '<div class="utdi-item"><div class="utdi-emoji">'+p.emoji+'</div><div><h3>'+p.title+'</h3><p>'+(item.deskripsi||'')+'</p></div></div>';
     }).join('');
   }
 
@@ -502,11 +519,8 @@
     var el = document.getElementById('manfaat-list');
     if (!el) return;
     el.innerHTML = m.items.map(function(item) {
-      var j = (item.judul || '').trim();
-      var spaceIdx = j.indexOf(' ');
-      var emoji = spaceIdx > 0 ? j.substring(0, spaceIdx) : '';
-      var title = spaceIdx > 0 ? j.substring(spaceIdx+1).trim() : j;
-      return '<div class="manfaat-row"><span class="manfaat-icon">'+emoji+'</span><div><strong>'+title+'</strong><p>'+(item.deskripsi||'')+'</p></div></div>';
+      var p = stripEmoji(item.judul || '');
+      return '<div class="manfaat-row"><span class="manfaat-icon">'+p.emoji+'</span><div><strong>'+p.title+'</strong><p>'+(item.deskripsi||'')+'</p></div></div>';
     }).join('');
   }
 
