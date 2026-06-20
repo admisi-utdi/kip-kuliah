@@ -264,7 +264,6 @@
       <span class="label oranye">Yang Kamu Dapat</span>
       <h2 id="manfaat-title">Apa Keuntungan KIP Kuliah?</h2>
       <div class="manfaat-list" id="manfaat-list">
-        <div class="card-section-header"><i class="ti ti-gift"></i><span>Keuntungan program</span><span class="mode-badge">KIP Kuliah</span></div>
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Biaya pendidikan ditanggung pemerintah</strong><p>Biaya pendidikan ditanggung pemerintah selama masa studi berlangsung</p></div></div>
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Bantuan biaya hidup</strong><p>Mendapat bantuan biaya hidup sesuai ketentuan program</p></div></div>
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Berlaku di perguruan tinggi swasta</strong><p>Dapat digunakan untuk kuliah di PTS yang menerima KIP Kuliah</p></div></div>
@@ -277,7 +276,6 @@
       <span class="label ungu">Pilihan Tepat</span>
       <h2 id="utdi-title">Mengapa Memilih UTDI?</h2>
       <div class="utdi-grid" id="utdi-grid">
-        <div class="card-section-header"><i class="ti ti-building-community"></i><span>Keunggulan UTDI</span><span class="mode-badge">Sejak 1979</span></div>
         <div class="utdi-item">
           <div class="utdi-emoji">💻</div>
           <div>
@@ -478,12 +476,14 @@
     if (!u.items || !u.items.length) return;
     var el = document.getElementById('utdi-grid');
     if (!el) return;
-    el.innerHTML = u.items.map(function(item) {
+    var header = '<div class="card-section-header"><i class="ti ti-building-community"></i><span>Keunggulan UTDI</span><span class="mode-badge">Sejak 1979</span></div>';
+    var items = u.items.map(function(item) {
       var j = item.judul || '';
       var emoji = j.substring(0,2);
       var title = j.substring(2).trim();
       return '<div class="utdi-item"><div class="utdi-emoji">'+emoji+'</div><div><h3>'+title+'</h3><p>'+(item.deskripsi||'')+'</p></div></div>';
     }).join('');
+    el.innerHTML = header + items;
   }
 
   function renderManfaat(m) {
@@ -493,12 +493,14 @@
     if (!m.items || !m.items.length) return;
     var el = document.getElementById('manfaat-list');
     if (!el) return;
-    el.innerHTML = m.items.map(function(item) {
+    var header = '<div class="card-section-header"><i class="ti ti-gift"></i><span>Keuntungan program</span><span class="mode-badge">KIP Kuliah</span></div>';
+    var items = m.items.map(function(item) {
       var j = item.judul || '';
       var emoji = j.substring(0,2);
       var title = j.substring(2).trim();
       return '<div class="manfaat-row"><span class="manfaat-icon">'+emoji+'</span><div><strong>'+title+'</strong><p>'+(item.deskripsi||'')+'</p></div></div>';
     }).join('');
+    el.innerHTML = header + items;
   }
 
   function renderHero(h) {
