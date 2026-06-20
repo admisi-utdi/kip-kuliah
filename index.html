@@ -128,7 +128,7 @@
     .tl-badge { background: var(--mint); color: var(--ungu); font-weight: 700; font-size: 0.6rem; padding: 2px 12px; border-radius: 30px; letter-spacing: 0.04em; }
 
     /* KIP CARD WRAP — container card abu seperti seleksi-block */
-    .kip-card-wrap { background: var(--abu1); border-radius: 16px; padding: 0 20px 12px; margin-top: 16px; }
+    .kip-card-wrap { background: var(--abu1); border-radius: 16px; padding: 0 20px 16px; margin-top: 16px; border: 1px solid var(--abu2); }
     .kip-card-wrap .card-section-header { padding: 16px 0 12px; }
 
     /* CARD SECTION HEADER — dipakai di manfaat, utdi, seleksi */
@@ -486,9 +486,10 @@
     var el = document.getElementById('utdi-grid');
     if (!el) return;
     el.innerHTML = u.items.map(function(item) {
-      var j = item.judul || '';
-      var emoji = j.substring(0,2);
-      var title = j.substring(2).trim();
+      var j = (item.judul || '').trim();
+      var spaceIdx = j.indexOf(' ');
+      var emoji = spaceIdx > 0 ? j.substring(0, spaceIdx) : '';
+      var title = spaceIdx > 0 ? j.substring(spaceIdx+1).trim() : j;
       return '<div class="utdi-item"><div class="utdi-emoji">'+emoji+'</div><div><h3>'+title+'</h3><p>'+(item.deskripsi||'')+'</p></div></div>';
     }).join('');
   }
@@ -501,9 +502,10 @@
     var el = document.getElementById('manfaat-list');
     if (!el) return;
     el.innerHTML = m.items.map(function(item) {
-      var j = item.judul || '';
-      var emoji = j.substring(0,2);
-      var title = j.substring(2).trim();
+      var j = (item.judul || '').trim();
+      var spaceIdx = j.indexOf(' ');
+      var emoji = spaceIdx > 0 ? j.substring(0, spaceIdx) : '';
+      var title = spaceIdx > 0 ? j.substring(spaceIdx+1).trim() : j;
       return '<div class="manfaat-row"><span class="manfaat-icon">'+emoji+'</span><div><strong>'+title+'</strong><p>'+(item.deskripsi||'')+'</p></div></div>';
     }).join('');
   }
