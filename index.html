@@ -373,13 +373,19 @@
   </div>
 </div><!-- /scale-wrap -->
 
-<!-- STICKY BAR — di luar scale-wrap agar tidak ter-scale -->
-<div class="sticky-bar">
-  <div class="sticky-text"><strong>KIP Kuliah UTDI 2026</strong>Pendaftaran dibuka · Gratis</div>
-  <a href="#" id="sticky-btn" class="btn-sticky" target="_blank">Daftar Sekarang</a>
-</div>
+<!-- sticky bar dibuat via JS -->
 
 <script>
+  // Buat sticky bar langsung di body via JS — agar fixed bekerja meski ada transform
+  (function createSticky() {
+    var bar = document.createElement('div');
+    bar.className = 'sticky-bar';
+    bar.id = 'sticky-bar-el';
+    bar.innerHTML = '<div class="sticky-text"><strong>KIP Kuliah UTDI 2026</strong>Pendaftaran dibuka · Gratis</div>' +
+      '<a href="https://utdi.id/kip-kuliah" id="sticky-btn" class="btn-sticky" target="_blank">Daftar Sekarang</a>';
+    document.body.appendChild(bar);
+  })();
+
   function applyScale() {
     var wrap = document.getElementById('scale-wrap');
     var w = window.innerWidth;
@@ -454,10 +460,9 @@
     h('cta-sub',      c.sub ? c.sub.replace('Jalur KIP Kuliah','<strong>Jalur KIP Kuliah</strong>') : '');
     s('cta-btn-teks', c.btn_teks || 'DAFTAR KIP KULIAH');
     var link = c.btn_link || 'https://utdi.id/kip-kuliah';
-    var b = document.getElementById('cta-btn');
-    if (b) b.href = link;
-    var sb = document.getElementById('sticky-btn');
-    if (sb) sb.href = link;
+    ['cta-btn','sticky-btn'].forEach(function(id){
+      var e = document.getElementById(id); if(e) e.href = link;
+    });
   }
 
 
