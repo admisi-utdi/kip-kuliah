@@ -3,89 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>KIP Kuliah – UTDI</title>
+  <title>KIP Kuliah · UTDI – Desain Berani</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
-
   <style>
-    /* ===== ROOT ===== */
-    :root {
-      --red: #B72818;
-      --red-dark: #9e1f12;
-      --green: #ADEEC5;
-      --green-dark: #6bc89a;
-      --orange: #FFA213;
-      --orange-light: #ffbe4a;
-      --blue: #4B75FF;
-      --blue-dark: #3a5fd4;
-      --purple: #130358;
-      --purple-light: #2a1a6b;
-      --white: #ffffff;
-      --gray-50: #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --gray-300: #cbd5e1;
-      --gray-400: #94a3b8;
-      --gray-500: #64748b;
-      --gray-600: #475569;
-      --gray-700: #334155;
-      --gray-800: #1e293b;
-      --gray-900: #0f172a;
-      --shadow: 0 4px 20px rgba(19, 3, 88, 0.08);
-      --shadow-lg: 0 12px 40px rgba(19, 3, 88, 0.12);
-      --radius: 16px;
-      --radius-sm: 10px;
-      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
+    /* ---- reset & variabel ---- */
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      min-width: 0;
     }
-
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
+    :root {
+      --merah: #B72818;
+      --mint: #ADEEC5;
+      --oranye: #FFA213;
+      --biru: #4B75FF;
+      --ungu: #130358;
+      --putih: #ffffff;
+      --abu: #b8b0d1;
+      --bg: #0c022e;
+      --card-bg: rgba(255, 255, 255, 0.06);
+      --radius: 20px;
+      --font: 'Space Grotesk', sans-serif;
     }
-
+    html,
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--gray-50);
-      color: var(--gray-800);
-      line-height: 1.6;
-      padding-bottom: 80px;
-      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100vw;
+      background: var(--bg);
+      color: var(--putih);
+      font-family: var(--font);
+      padding-bottom: 100px;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
     }
-
     a {
       text-decoration: none;
       color: inherit;
     }
-
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
+    #scale-wrap {
+      width: 100%;
+      max-width: 100vw;
+      transform-origin: top left;
+      overflow-x: hidden;
     }
 
-    /* ===== LOADING ===== */
+    /* ---- utilities ---- */
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .section {
+      padding: 3rem 0;
+    }
+    .section-head {
+      margin-bottom: 2rem;
+    }
+    .section-head .eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.9rem;
+      border-radius: 30px;
+      background: var(--merah);
+      color: var(--putih);
+    }
+    .section-head h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+      line-height: 1.2;
+    }
+    .section-head p {
+      color: var(--abu);
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+    }
+    .section-head .eyebrow-alt {
+      background: var(--oranye);
+      color: var(--ungu);
+    }
+    .badge-warna {
+      display: inline-block;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .badge-merah {
+      background: var(--merah);
+      color: #fff;
+    }
+    .badge-mint {
+      background: var(--mint);
+      color: var(--ungu);
+    }
+    .badge-oranye {
+      background: var(--oranye);
+      color: var(--ungu);
+    }
+    .badge-biru {
+      background: var(--biru);
+      color: #fff;
+    }
+
+    /* ---- loading ---- */
     #loading {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 90vh;
-      gap: 1rem;
+      min-height: 80vh;
+      gap: 1.5rem;
     }
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid var(--gray-200);
-      border-top-color: var(--red);
+    .loader {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-top-color: var(--oranye);
+      animation: spin 0.9s linear infinite;
     }
     @keyframes spin {
       to {
@@ -93,453 +137,379 @@
       }
     }
     #loading p {
-      color: var(--gray-500);
-      font-weight: 600;
-    }
-
-    /* ===== UTILITY ===== */
-    .badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.25rem 1rem;
-      border-radius: 50px;
-    }
-    .badge-red {
-      background: var(--red);
-      color: #fff;
-    }
-    .badge-orange {
-      background: var(--orange);
-      color: var(--purple);
-    }
-    .badge-blue {
-      background: var(--blue);
-      color: #fff;
-    }
-    .badge-green {
-      background: var(--green);
-      color: var(--purple);
-    }
-
-    .section {
-      padding: 3rem 0;
-    }
-    .section-alt {
-      background: var(--white);
-    }
-    .section-green {
-      background: var(--green);
-    }
-    .section-purple {
-      background: var(--purple);
-      color: #fff;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto 2.5rem;
-    }
-    .section-header .label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--red);
-      background: rgba(183, 40, 24, 0.08);
-      padding: 0.25rem 1.2rem;
-      border-radius: 50px;
-      display: inline-block;
-    }
-    .section-header h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--purple);
-      margin-top: 0.4rem;
-      letter-spacing: -0.02em;
-    }
-    .section-header p {
-      color: var(--gray-500);
+      color: var(--abu);
       font-size: 1rem;
-      margin-top: 0.3rem;
-    }
-    .section-header.white h2 {
-      color: #fff;
-    }
-    .section-header.white p {
-      color: rgba(255, 255, 255, 0.7);
-    }
-    .section-header.white .label {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--orange);
     }
 
-    /* ===== BUTTONS ===== */
-    .btn {
-      display: inline-flex;
+    /* ---- app ---- */
+    #app {
+      display: none;
+    }
+
+    /* ---- NAV ---- */
+    .nav {
+      display: flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: inherit;
-    }
-    .btn-red {
-      background: var(--red);
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(183, 40, 24, 0.35);
-    }
-    .btn-red:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(183, 40, 24, 0.45);
-    }
-    .btn-outline-white {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-    .btn-outline-white:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: #fff;
-    }
-    .btn-orange {
-      background: var(--orange);
-      color: var(--purple);
-      box-shadow: 0 6px 20px rgba(255, 162, 19, 0.35);
-    }
-    .btn-orange:hover {
-      background: var(--orange-light);
-      transform: translateY(-2px);
-    }
-
-    /* ===== NAV ===== */
-    .navbar {
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-200);
-      padding: 0.8rem 0;
+      gap: 0.8rem;
+      padding: 1.5rem 1.5rem 0.5rem;
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(12, 2, 46, 0.85);
+      backdrop-filter: blur(8px);
     }
-    .navbar .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem 1rem;
-    }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--purple);
-    }
-    .nav-brand .logo {
-      width: 34px;
-      height: 34px;
-      background: var(--red);
-      color: #fff;
-      border-radius: 8px;
+    .nav-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--oranye);
+      color: var(--ungu);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 900;
+      font-weight: 800;
+      font-size: 0.9rem;
     }
-    .nav-brand span {
-      color: var(--red);
+    .nav-title {
+      font-weight: 700;
+      font-size: 1rem;
     }
-    .nav-links {
-      display: flex;
-      gap: 0.8rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-weight: 600;
-      font-size: 0.875rem;
-      color: var(--gray-600);
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      transition: var(--transition);
-    }
-    .nav-links a:hover {
-      background: var(--gray-100);
-      color: var(--purple);
-    }
-    .nav-links a.cta {
-      background: var(--red);
-      color: #fff;
-      padding: 0.4rem 1.2rem;
-      border-radius: 50px;
-    }
-    .nav-links a.cta:hover {
-      background: var(--red-dark);
+    .nav-sub {
+      font-size: 0.7rem;
+      color: var(--abu);
+      letter-spacing: 0.02em;
     }
 
-    /* ===== HERO ===== */
+    /* ---- HERO ---- */
     .hero {
-      background: linear-gradient(145deg, var(--purple) 0%, var(--purple-light) 100%);
-      padding: 2.5rem 0 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 10% 30%, rgba(75, 117, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 90% 70%, rgba(255, 162, 19, 0.12) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    .hero .container {
-      position: relative;
-      z-index: 1;
+      padding: 1rem 0 2.5rem;
       text-align: center;
     }
-    .hero .hero-badge {
+    .hero-badge {
       display: inline-block;
-      background: var(--orange);
-      color: var(--purple);
+      background: var(--merah);
+      color: #fff;
+      padding: 0.3rem 1.5rem;
+      border-radius: 30px;
       font-weight: 700;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.3rem 1.2rem;
-      border-radius: 50px;
-      margin-bottom: 1rem;
     }
     .hero h1 {
       font-size: 2.4rem;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: -0.02em;
+      font-weight: 700;
       line-height: 1.15;
-    }
-    .hero h1 .highlight {
-      background: linear-gradient(135deg, var(--orange), #ffd700);
+      margin-top: 1.2rem;
+      background: linear-gradient(135deg, #fff 30%, var(--oranye));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     .hero .tagline {
-      font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.75);
-      max-width: 520px;
-      margin: 0.8rem auto 1.8rem;
+      font-size: 1rem;
+      color: var(--abu);
+      max-width: 30rem;
+      margin: 0.8rem auto 0;
+      line-height: 1.6;
     }
 
-    /* hero card (mock KIP) */
-    .hero-card-wrap {
-      display: flex;
-      justify-content: center;
-      margin: 1.5rem 0 2rem;
-    }
-    .kip-card {
-      width: min(300px, 80%);
+    /* ---- kartu hero (geometric) ---- */
+    .kartu-hero {
+      margin: 2.5rem auto 0;
+      width: min(300px, 85%);
       aspect-ratio: 1.6 / 1;
-      background: linear-gradient(135deg, var(--purple-light), var(--purple));
-      border-radius: 18px;
-      padding: 1.25rem 1.5rem 1rem;
-      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      background: linear-gradient(145deg, var(--ungu), #28147a);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
       overflow: hidden;
-      transform: rotate(-1.5deg);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 20px 40px -10px rgba(19, 3, 88, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transform: rotate(1deg);
     }
-    .kip-card .shine {
+    .kartu-hero .chip {
+      width: 36px;
+      height: 26px;
+      background: var(--oranye);
+      border-radius: 6px;
+      position: relative;
+    }
+    .kartu-hero .chip::after {
+      content: '';
       position: absolute;
-      top: 0;
+      left: 6px;
+      right: 6px;
+      top: 10px;
+      height: 2px;
+      background: rgba(0, 0, 0, 0.25);
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+    }
+    .kartu-hero .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .kartu-hero .brand {
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .kartu-hero .mid {
+      margin-top: 0.3rem;
+    }
+    .kartu-hero .mid .label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .kartu-hero .mid .title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .kartu-hero .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .kartu-hero .foot .lbl {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.4);
+    }
+    .kartu-hero .foot .val {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #fff;
+    }
+    .kartu-hero .stripe {
+      position: absolute;
+      left: 0;
+      right: 0;
       bottom: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--merah), var(--oranye), var(--mint), var(--biru));
+    }
+    .kartu-hero .shine {
+      position: absolute;
+      top: -50%;
+      left: -40%;
       width: 60%;
-      left: -70%;
-      background: linear-gradient(75deg, transparent 30%, rgba(255, 255, 255, 0.12) 48%, rgba(255, 255, 255, 0.04) 52%, transparent 70%);
+      height: 200%;
+      background: linear-gradient(75deg, transparent 30%, rgba(255, 255, 255, 0.12) 50%, transparent 70%);
+      transform: rotate(25deg);
       animation: shine 7s ease-in-out infinite;
     }
     @keyframes shine {
       0%,
       20% {
-        left: -70%;
+        left: -40%;
       }
       40%,
       100% {
         left: 120%;
       }
     }
-    .kip-card .row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .kip-chip {
-      width: 32px;
-      height: 24px;
-      background: linear-gradient(135deg, #ffe588, var(--orange), #f5a200);
-      border-radius: 5px;
-      position: relative;
-    }
-    .kip-chip::before,
-    .kip-chip::after {
-      content: '';
-      position: absolute;
-      left: 5px;
-      right: 5px;
-      height: 1px;
-      background: rgba(0, 0, 0, 0.25);
-    }
-    .kip-chip::before {
-      top: 8px;
-    }
-    .kip-chip::after {
-      top: 14px;
-    }
-    .kip-brand {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: rgba(255, 255, 255, 0.7);
-    }
-    .kip-body .label {
-      font-size: 0.6rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255, 255, 255, 0.5);
-    }
-    .kip-body .title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #fff;
-      margin-top: 2px;
-    }
-    .kip-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.7);
-    }
-    .kip-footer .val {
-      font-weight: 700;
-      color: #fff;
-    }
-    .kip-stripe {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, var(--orange), var(--orange-light), var(--green), var(--blue));
-    }
 
-    /* hero stats */
-    .hero-stats {
+    /* ---- stat strip ---- */
+    .stats {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 1.2rem 0;
-      margin: 1.5rem 0;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .hero-stats .stat {
+    .stat {
+      flex: 1;
       text-align: center;
+      padding: 1rem 0.5rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .hero-stats .stat .num {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--orange);
-      font-family: 'Inter', sans-serif;
+    .stat:last-child {
+      border-right: none;
     }
-    .hero-stats .stat .lbl {
+    .stat-num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--oranye);
+    }
+    .stat-lbl {
       font-size: 0.7rem;
-      color: rgba(255, 255, 255, 0.55);
-      letter-spacing: 0.02em;
+      color: var(--abu);
+      margin-top: 0.2rem;
+    }
+    .btn-utama {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--oranye);
+      color: var(--ungu);
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      margin-top: 2rem;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-utama:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(255, 162, 19, 0.4);
     }
 
-    .hero .btn-group {
+    /* ---- tentang ---- */
+    .tentang-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .tentang-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.2rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
+    }
+    .tentang-card .num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--mint);
+    }
+    .tentang-card .desc {
+      font-size: 0.85rem;
+      color: var(--abu);
+      margin-top: 0.3rem;
+      line-height: 1.5;
+    }
+    .tentang-lead {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #e0dbf0;
+    }
+    .tentang-lead strong {
+      color: var(--oranye);
+    }
+
+    details.law {
+      margin-top: 1.2rem;
+    }
+    details.law summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--mint);
+      list-style: none;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.8rem;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    details.law summary::-webkit-details-marker {
+      display: none;
+    }
+    details.law summary::after {
+      content: '\ea60';
+      font-family: 'tabler-icons';
+      transition: transform 0.2s;
+    }
+    details.law[open] summary::after {
+      transform: rotate(180deg);
+    }
+    .law-body {
+      color: var(--abu);
+      line-height: 1.7;
+      font-size: 0.95rem;
+      padding-top: 0.8rem;
+    }
+    .law-body p {
+      margin-bottom: 0.8rem;
+    }
+    .uu-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--card-bg);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--mint);
+      margin-top: 1rem;
+      border: 1px solid rgba(173, 238, 197, 0.2);
     }
 
-    /* ===== BENEFITS ===== */
-    .benefit-grid {
+    /* ---- manfaat ---- */
+    .manfaat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
-    .benefit-item {
-      background: var(--white);
-      border-radius: var(--radius-sm);
-      padding: 1.25rem 1rem;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--gray-100);
-      transition: var(--transition);
+    .manfaat-item {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.2rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
     }
-    .benefit-item:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-    .benefit-item .icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(183, 40, 24, 0.08);
-      color: var(--red);
+    .manfaat-item .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 0.6rem;
     }
-    .benefit-item h3 {
-      font-size: 0.95rem;
+    .icon-merah {
+      background: var(--merah);
+      color: #fff;
+    }
+    .icon-mint {
+      background: var(--mint);
+      color: var(--ungu);
+    }
+    .icon-oranye {
+      background: var(--oranye);
+      color: var(--ungu);
+    }
+    .icon-biru {
+      background: var(--biru);
+      color: #fff;
+    }
+    .manfaat-item h3 {
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--purple);
       margin-bottom: 0.2rem;
     }
-    .benefit-item p {
+    .manfaat-item p {
       font-size: 0.85rem;
-      color: var(--gray-500);
+      color: var(--abu);
       line-height: 1.5;
-      margin: 0;
     }
 
-    /* ===== TIMELINE ===== */
-    .timeline {
+    /* ---- jadwal (timeline) ---- */
+    .tl {
       position: relative;
       padding-left: 1.8rem;
     }
-    .timeline::before {
+    .tl::before {
       content: '';
       position: absolute;
-      left: 5px;
-      top: 6px;
-      bottom: 6px;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
       width: 2px;
-      background: var(--gray-200);
+      background: rgba(255, 255, 255, 0.12);
     }
     .tl-item {
       position: relative;
-      padding-bottom: 1.5rem;
+      padding-bottom: 1.8rem;
     }
     .tl-item:last-child {
       padding-bottom: 0;
@@ -547,662 +517,630 @@
     .tl-dot {
       position: absolute;
       left: -1.8rem;
-      top: 3px;
+      top: 4px;
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: var(--white);
-      border: 2.5px solid var(--gray-300);
+      background: var(--bg);
+      border: 2px solid #4a3a7a;
     }
-    .tl-dot.open {
-      border-color: var(--orange);
-      background: var(--orange);
+    .tl-dot.buka {
+      background: var(--oranye);
+      border-color: var(--oranye);
     }
-    .tl-dot.done {
-      border-color: var(--green-dark);
-      background: var(--green-dark);
-    }
-    .tl-item .agenda {
+    .tl-agenda {
       font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--purple);
+      font-size: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       flex-wrap: wrap;
     }
-    .tl-item .date {
+    .tl-tgl {
       font-size: 0.85rem;
-      color: var(--gray-500);
-      margin-top: 1px;
+      color: var(--abu);
+      margin-top: 0.1rem;
     }
-    .tl-item .status-badge {
-      font-size: 0.6rem;
+    .tl-badge {
+      background: var(--biru);
+      color: #fff;
+      font-size: 0.65rem;
       font-weight: 700;
-      text-transform: uppercase;
       padding: 0.15rem 0.8rem;
-      border-radius: 50px;
-      background: var(--gray-200);
-      color: var(--gray-600);
-    }
-    .status-badge.buka {
-      background: var(--orange);
-      color: var(--purple);
-    }
-    .status-badge.selesai {
-      background: var(--green);
-      color: var(--purple);
+      border-radius: 30px;
+      letter-spacing: 0.04em;
     }
 
-    /* ===== SYARAT ===== */
-    .syarat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.9rem;
+    /* ---- seleksi ---- */
+    .seleksi-block {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.2rem 0.8rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .syarat-card {
-      background: var(--white);
-      border-radius: var(--radius-sm);
-      padding: 1rem 1.1rem;
-      border: 1px solid var(--gray-100);
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      position: relative;
+    .seleksi-block:last-child {
+      margin-bottom: 0;
     }
-    .syarat-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-    .syarat-card .top {
+    .seleksi-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.3rem;
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
     }
-    .syarat-card .no {
-      font-weight: 800;
-      font-size: 0.7rem;
-      color: var(--gray-400);
-      background: var(--gray-100);
-      padding: 0 0.5rem;
-      border-radius: 10px;
+    .seleksi-header i {
+      font-size: 1.2rem;
+      color: var(--oranye);
     }
-    .syarat-card .type {
+    .seleksi-header span {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .seleksi-header .mode {
+      margin-left: auto;
+      background: var(--biru);
+      color: #fff;
       font-size: 0.6rem;
       font-weight: 700;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
       text-transform: uppercase;
-      padding: 0.1rem 0.6rem;
-      border-radius: 12px;
     }
-    .type.ekonomi {
-      background: #fef3c7;
-      color: #92400e;
+    .seleksi-item {
+      border-left: 3px solid var(--oranye);
+      padding-left: 0.8rem;
+      margin-bottom: 0.8rem;
     }
-    .type.wajib {
-      background: #fee2e2;
-      color: #991b1b;
+    .seleksi-item .t {
+      font-weight: 600;
+      font-size: 0.95rem;
     }
-    .type.alternatif {
-      background: #dbeafe;
-      color: #1e3a8a;
-    }
-    .type.opsional {
-      background: var(--gray-200);
-      color: var(--gray-600);
-    }
-    .syarat-card .dokumen {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--purple);
-    }
-    .syarat-card .ket {
-      font-size: 0.8rem;
-      color: var(--gray-500);
-      margin-top: 1px;
-      line-height: 1.4;
+    .seleksi-item .d {
+      font-size: 0.85rem;
+      color: var(--abu);
+      margin-top: 0.1rem;
+      line-height: 1.5;
     }
 
-    .syarat-note {
-      background: rgba(173, 238, 197, 0.4);
-      border-left: 4px solid var(--green-dark);
-      border-radius: var(--radius-sm);
-      padding: 0.9rem 1.1rem;
-      font-size: 0.9rem;
-      color: var(--gray-700);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-    .syarat-note strong {
-      color: var(--purple);
-    }
-
-    /* ===== ALUR (purple section) ===== */
-    .step-list {
+    /* ---- alur (dark with colored numbers) ---- */
+    .alur {
       position: relative;
-      padding-left: 2.8rem;
+      padding-left: 3rem;
     }
-    .step-list::before {
+    .alur::before {
       content: '';
       position: absolute;
-      left: 1.1rem;
+      left: 1.2rem;
       top: 8px;
       bottom: 8px;
       width: 2px;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.1);
     }
-    .step-item {
+    .alur-item {
       position: relative;
       padding-bottom: 1.8rem;
     }
-    .step-item:last-child {
+    .alur-item:last-child {
       padding-bottom: 0;
     }
-    .step-number {
+    .alur-num {
       position: absolute;
-      left: -2.8rem;
+      left: -3rem;
       top: 0;
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: var(--orange);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 0.85rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      color: var(--oranye);
     }
-    .step-number.done {
-      background: var(--green);
-      color: var(--purple);
-      border-color: var(--green);
+    .alur-num.ok {
+      background: var(--mint);
+      color: var(--ungu);
+      border-color: var(--mint);
     }
-    .step-item h4 {
+    .alur-item h4 {
       font-weight: 700;
       font-size: 1rem;
-      color: #fff;
       margin-bottom: 0.15rem;
     }
-    .step-item p {
+    .alur-item p {
       font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--abu);
       line-height: 1.6;
     }
-    .step-item a {
-      color: var(--orange);
+    .alur-item a {
+      color: var(--oranye);
       font-weight: 600;
     }
-    .step-free {
+    .gratis-badge {
       display: inline-block;
-      background: var(--orange);
-      color: var(--purple);
-      font-size: 0.7rem;
-      font-weight: 700;
+      background: var(--merah);
+      color: #fff;
       padding: 0.2rem 1rem;
-      border-radius: 50px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.75rem;
       margin-top: 0.4rem;
     }
 
-    /* ===== FOOTER ===== */
-    .footer {
-      background: var(--purple);
-      color: rgba(255, 255, 255, 0.6);
-      padding: 2.5rem 0 2rem;
+    /* ---- syarat ---- */
+    .syarat-note {
+      background: var(--card-bg);
+      border-left: 4px solid var(--biru);
+      padding: 1rem 1.2rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.9rem;
+      color: #ddd;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
-    .footer .container {
+    .syarat-grup {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mint);
+      margin: 1.2rem 0 0.5rem;
+    }
+    .syarat-grup:first-of-type {
+      margin-top: 0;
+    }
+    .syarat-item {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .footer .brand {
-      font-weight: 800;
-      font-size: 1.2rem;
+    .syarat-item:last-child {
+      border-bottom: none;
+    }
+    .syarat-no {
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--biru);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .syarat-no.alt {
+      background: var(--oranye);
+      color: var(--ungu);
+    }
+    .syarat-teks {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .syarat-ket {
+      font-size: 0.8rem;
+      color: var(--abu);
+      margin-top: 0.1rem;
+      line-height: 1.5;
+    }
+    .tag-tipe {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .tag-W {
+      background: var(--merah);
       color: #fff;
     }
-    .footer .brand span {
-      color: var(--orange);
+    .tag-O {
+      background: var(--biru);
+      color: #fff;
     }
-    .footer .address {
+    .tag-E {
+      background: var(--oranye);
+      color: var(--ungu);
+    }
+    .tag-A {
+      background: var(--mint);
+      color: var(--ungu);
+    }
+
+    .syarat-footer {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
       font-size: 0.85rem;
+      color: var(--abu);
+      line-height: 1.6;
+      margin-top: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* ---- footer ---- */
+    .footer {
+      padding: 2.5rem 0 2rem;
+    }
+    .footer .brand {
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--mint), var(--biru));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .footer .addr {
+      color: var(--abu);
+      font-size: 0.9rem;
       line-height: 1.7;
-      margin: 0.3rem 0 1rem;
+      margin: 0.5rem 0 1.5rem;
     }
     .footer .contact {
       display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      font-size: 0.85rem;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--abu);
+      margin-bottom: 0.5rem;
+    }
+    .footer .contact i {
+      color: var(--oranye);
+      width: 20px;
     }
     .footer .contact a {
-      color: rgba(255, 255, 255, 0.6);
-      transition: var(--transition);
+      color: var(--abu);
     }
     .footer .contact a:hover {
-      color: var(--orange);
+      color: #fff;
     }
 
-    /* ===== STICKY BAR ===== */
+    /* ---- sticky bar ---- */
     .sticky-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: var(--white);
-      padding: 0.8rem 1.25rem;
+      background: var(--ungu);
+      padding: 0.8rem 1.2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.8rem;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
-      z-index: 1000;
-      border-top: 1px solid var(--gray-200);
+      gap: 1rem;
+      z-index: 1050;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      background: rgba(19, 3, 88, 0.92);
     }
-    .sticky-bar .info strong {
+    .sticky-text {
+      font-size: 0.8rem;
+      color: var(--abu);
+      line-height: 1.3;
+    }
+    .sticky-text strong {
       display: block;
-      font-size: 0.9rem;
-      color: var(--purple);
-    }
-    .sticky-bar .info small {
-      font-size: 0.75rem;
-      color: var(--gray-500);
-    }
-    .sticky-bar .btn-sticky {
-      background: var(--red);
+      font-size: 0.95rem;
       color: #fff;
-      padding: 0.6rem 1.6rem;
-      border-radius: 50px;
       font-weight: 700;
+    }
+    .btn-sticky {
+      background: var(--oranye);
+      color: var(--ungu);
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
       font-size: 0.9rem;
       white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(183, 40, 24, 0.3);
-      transition: var(--transition);
-    }
-    .sticky-bar .btn-sticky:hover {
-      background: var(--red-dark);
-      transform: scale(1.02);
+      border: none;
+      cursor: pointer;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 600px) {
+    /* ---- responsive ---- */
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 0 1rem;
+      }
       .hero h1 {
         font-size: 1.8rem;
       }
-      .benefit-grid {
-        grid-template-columns: 1fr;
+      .manfaat-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7rem;
       }
-      .syarat-grid {
-        grid-template-columns: 1fr;
+      .tentang-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7rem;
       }
-      .hero-stats {
-        gap: 1rem;
-      }
-      .nav-links a {
-        font-size: 0.8rem;
-        padding: 0.2rem 0.5rem;
-      }
-      .nav-links a.cta {
-        padding: 0.3rem 1rem;
-      }
-      .footer .container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .sticky-bar .info strong {
-        font-size: 0.8rem;
-      }
-      .sticky-bar .btn-sticky {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .hero h1 {
+      .section-head h2 {
         font-size: 1.5rem;
       }
-      .section-header h2 {
-        font-size: 1.4rem;
+      .stat-num {
+        font-size: 1.3rem;
       }
-      .kip-card {
-        width: 90%;
+      .kartu-hero .mid .title {
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 <body>
+  <div id="scale-wrap">
+    <!-- loading -->
+    <div id="loading">
+      <div class="loader"></div>
+      <p>Memuat data beasiswa …</p>
+    </div>
 
-  <!-- ===== LOADING ===== -->
-  <div id="loading">
-    <div class="spinner"></div>
-    <p>Memuat data beasiswa...</p>
-  </div>
-
-  <!-- ===== APP (hidden until data loaded) ===== -->
-  <div id="app" style="display:none">
-
-    <!-- NAV -->
-    <nav class="navbar">
-      <div class="container">
-        <a href="#" class="nav-brand">
-          <span class="logo">UTDI</span>
-          KIP<span>Kuliah</span>
-        </a>
-        <ul class="nav-links">
-          <li><a href="#jadwal">Jadwal</a></li>
-          <li><a href="#syarat">Syarat</a></li>
-          <li><a href="#alur">Alur</a></li>
-          <li><a href="#" class="cta" id="nav-cta">Daftar</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="container">
-        <span class="hero-badge" id="hero-badge">BEASISWA PENUH 2026</span>
-        <h1>
-          Program <span class="highlight">KIP Kuliah</span><br />
-          Universitas Teknologi Digital Indonesia
-        </h1>
-        <p class="tagline" id="hero-tagline">
-          Kuliah gratis biaya pendidikan + uang saku untuk calon mahasiswa berprestasi dari keluarga kurang mampu.
-        </p>
-
-        <div class="hero-card-wrap">
-          <div class="kip-card">
-            <div class="shine"></div>
-            <div class="row">
-              <div class="kip-chip"></div>
-              <span class="kip-brand">UTDI</span>
-            </div>
-            <div class="kip-body">
-              <div class="label">Kartu Indonesia Pintar</div>
-              <div class="title">Kuliah</div>
-            </div>
-            <div class="kip-footer">
-              <div>
-                <div>Penerima</div>
-                <div class="val">Mahasiswa UTDI</div>
-              </div>
-              <div style="text-align:right;">
-                <div>Masa Aktif</div>
-                <div class="val">8 Semester</div>
-              </div>
-            </div>
-            <div class="kip-stripe"></div>
-          </div>
-        </div>
-
-        <div class="hero-stats" id="hero-stats">
-          <div class="stat"><span class="num" id="h-s1">450+</span><div class="lbl" id="h-l1">Mahasiswa aktif</div></div>
-          <div class="stat"><span class="num" id="h-s2">8 Sem</span><div class="lbl" id="h-l2">Durasi beasiswa</div></div>
-          <div class="stat"><span class="num" id="h-s3">Rp0</span><div class="lbl" id="h-l3">Biaya daftar</div></div>
-        </div>
-
-        <div class="btn-group">
-          <a href="#" id="hero-btn" class="btn btn-red">Daftar Sekarang <i class="ti ti-arrow-right"></i></a>
-          <a href="#alur" class="btn btn-outline-white">Lihat Alur <i class="ti ti-chevron-down"></i></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- MANFAAT -->
-    <section class="section section-alt" id="manfaat">
-      <div class="container">
-        <div class="section-header">
-          <span class="label">Keuntungan</span>
-          <h2>Manfaat Beasiswa</h2>
-          <p>Nikmati seluruh fasilitas pendidikan tanpa beban biaya.</p>
-        </div>
-        <div class="benefit-grid">
-          <div class="benefit-item">
-            <div class="icon"><i class="ti ti-school"></i></div>
-            <h3>Bebas biaya kuliah</h3>
-            <p>SPA, SPP Tetap & Variabel ditanggung penuh 8 semester.</p>
-          </div>
-          <div class="benefit-item">
-            <div class="icon"><i class="ti ti-wallet"></i></div>
-            <h3>Uang saku hidup</h3>
-            <p>Bantuan biaya hidup cair setiap 3 bulan sekali.</p>
-          </div>
-          <div class="benefit-item">
-            <div class="icon"><i class="ti ti-certificate"></i></div>
-            <h3>Sejak 2014</h3>
-            <p>Dipantau & dievaluasi prestasi akademik secara konsisten.</p>
-          </div>
-          <div class="benefit-item">
-            <div class="icon"><i class="ti ti-shield-check"></i></div>
-            <h3>100% gratis</h3>
-            <p>Seluruh proses seleksi tanpa biaya. Abaikan jika ada tagihan.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- JADWAL -->
-    <section class="section section-green" id="jadwal">
-      <div class="container">
-        <div class="section-header">
-          <span class="label">Lini Masa</span>
-          <h2>Jadwal Pendaftaran 2026</h2>
-          <p>Bersifat tentatif, dapat berubah sewaktu-waktu.</p>
-        </div>
-        <div class="timeline" id="jadwal-list"></div>
-      </div>
-    </section>
-
-    <!-- SYARAT -->
-    <section class="section section-alt" id="syarat">
-      <div class="container">
-        <div class="section-header">
-          <span class="label">Berkas</span>
-          <h2>Syarat & Dokumen</h2>
-          <p>Siapkan kelengkapan berikut sebelum mendaftar.</p>
-        </div>
-        <div class="syarat-note">
-          <i class="ti ti-info-circle" style="color:var(--blue);margin-right:6px;"></i>
-          Wajib memiliki <strong>minimal salah satu</strong> kriteria ekonomi (no. 1–7). Jika tidak, gunakan jalur Surat Keterangan Penghasilan + SKTM (no. 8).
-        </div>
-        <div class="syarat-grid" id="syarat-list"></div>
-        <div style="margin-top:1.2rem;background:var(--gray-100);border-radius:var(--radius-sm);padding:0.9rem 1.1rem;font-size:0.85rem;color:var(--gray-600);">
-          <i class="ti ti-file-description" style="color:var(--blue);margin-right:6px;"></i>
-          Semua dokumen di-scan <strong>asli</strong>, digabung jadi <strong>1 file PDF</strong> per mahasiswa, urutan sesuai nomor di atas.
-        </div>
-      </div>
-    </section>
-
-    <!-- ALUR (purple) -->
-    <section class="section section-purple" id="alur">
-      <div class="container">
-        <div class="section-header white">
-          <span class="label">8 Langkah</span>
-          <h2>Alur Pendaftaran</h2>
-          <p>Seluruh proses, dari awal sampai akhir, gratis.</p>
-        </div>
-        <div class="step-list" id="step-list">
-          <!-- static because data not provided, but we can keep dynamic if needed -->
-          <div class="step-item">
-            <div class="step-number">1</div>
-            <h4>Pendaftaran awal di UTDI</h4>
-            <p>Isi formulir di <a href="#" target="_blank">utdi.id/kip-kuliah</a>. Langkah pertama yang wajib.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-number">2</div>
-            <h4>Cek email & WhatsApp</h4>
-            <p>Cek email/WA untuk Token Validation dan Bukti Daftar KIP (PDF). Di PDF ada link grup WA — masuk perlu approval admin.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-number">3</div>
-            <h4>Pantau pembukaan jalur PTS Mandiri</h4>
-            <p>Ikuti info terkini di grup WA mengenai pembukaan jalur seleksi mandiri pemerintah.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-number">4</div>
-            <h4>Daftar di Kemendikbud</h4>
-            <p>Setelah ada instruksi, daftar di <a href="https://kip-kuliah.kemdikbud.go.id/" target="_blank">kip-kuliah.kemdikbud.go.id</a> jalur mandiri PTS.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-number">5</div>
-            <h4>Seleksi online</h4>
-            <p>Wawancara motivasi & TPA dilakukan daring sesuai urutan pendaftaran.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-number">6</div>
-            <h4>Verifikasi berkas</h4>
-            <p>Calon yang lolos diminta mengunggah dokumen secara digital.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-number">7</div>
-            <h4>Registrasi PMB UTDI</h4>
-            <p>Daftar di <a href="https://pmb.utdi.ac.id" target="_blank">pmb.utdi.ac.id</a> setelah ada instruksi dari panitia.</p>
-          </div>
-          <div class="step-item">
-            <div class="step-number done"><i class="ti ti-check"></i></div>
-            <h4>Penetapan & NIM</h4>
-            <p>Dapatkan SK Penetapan KIP dan Nomor Induk Mahasiswa — lalu siap kuliah!</p>
-            <span class="step-free">Seluruh proses GRATIS</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
+    <!-- app -->
+    <div id="app">
+      <!-- NAV -->
+      <div class="nav">
+        <div class="nav-logo">UT</div>
         <div>
-          <div class="brand">UTDI — <span>KIP Kuliah</span> 2026</div>
-          <div class="address">Jl. Majapahit No. 143, Karangjambe<br />Banguntapan, Bantul, Yogyakarta 55198</div>
-          <div class="contact">
-            <a href="https://www.utdi.ac.id" target="_blank"><i class="ti ti-world"></i> www.utdi.ac.id</a>
-            <a href="mailto:admisi@utdi.ac.id"><i class="ti ti-mail"></i> admisi@utdi.ac.id</a>
-            <span><i class="ti ti-phone"></i> 08174106654 (Kuindra Iriyanta)</span>
-          </div>
-        </div>
-        <div style="font-size:0.8rem;color:rgba(255,255,255,0.4);align-self:flex-end;">
-          &copy; 2026 UTDI
+          <div class="nav-title">UTDI</div>
+          <div class="nav-sub">Universitas Teknologi Digital Indonesia</div>
         </div>
       </div>
-    </footer>
 
-  </div><!-- /app -->
+      <!-- HERO -->
+      <div class="wrap hero">
+        <span class="hero-badge" id="hero-badge">BEASISWA PENUH 2026</span>
+        <h1 id="hero-judul">KIP Kuliah<br />UTDI</h1>
+        <p class="tagline" id="hero-tagline">Kuliah gratis + uang saku untuk mahasiswa berprestasi dari keluarga kurang mampu.</p>
+
+        <div class="kartu-hero">
+          <div class="shine"></div>
+          <div class="row">
+            <div class="chip"></div>
+            <div class="brand">UTDI</div>
+          </div>
+          <div class="mid">
+            <div class="label">Kartu Indonesia Pintar</div>
+            <div class="title">Kuliah</div>
+          </div>
+          <div class="foot">
+            <div>
+              <div class="lbl">Penerima</div>
+              <div class="val">Mahasiswa UTDI</div>
+            </div>
+            <div style="text-align:right">
+              <div class="lbl">Masa aktif</div>
+              <div class="val">8 Semester</div>
+            </div>
+          </div>
+          <div class="stripe"></div>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><div class="stat-num" id="h-s1">450+</div><div class="stat-lbl" id="h-l1">Mahasiswa aktif</div></div>
+          <div class="stat"><div class="stat-num" id="h-s2">8 Sem</div><div class="stat-lbl" id="h-l2">Durasi beasiswa</div></div>
+          <div class="stat"><div class="stat-num" id="h-s3">Rp0</div><div class="stat-lbl" id="h-l3">Biaya daftar</div></div>
+        </div>
+
+        <a href="#" id="hero-btn" class="btn-utama" target="_blank">Daftar Sekarang <i class="ti ti-arrow-right"></i></a>
+      </div>
+
+      <!-- TENTANG -->
+      <div class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow">Dasar Hukum</span>
+          <h2>Tentang KIP Kuliah</h2>
+        </div>
+        <div class="tentang-grid">
+          <div class="tentang-card"><div class="num">2012</div><div class="desc">UU Pendidikan Tinggi mewajibkan negara menjamin akses kuliah</div></div>
+          <div class="tentang-card"><div class="num">2020</div><div class="desc">KIP Kuliah resmi hadir sebagai bantuan penuh dari pemerintah</div></div>
+        </div>
+        <p class="tentang-lead">KIP Kuliah adalah wujud hadirnya negara dalam <strong>Program Indonesia Pintar (PIP)</strong> — membebaskan biaya kuliah dan memberi bantuan biaya hidup bulanan bagi mahasiswa dari keluarga kurang mampu yang memenuhi syarat ekonomi dan akademik.</p>
+
+        <details class="law">
+          <summary>Baca dasar hukum lengkap</summary>
+          <div class="law-body">
+            <p>Berdasarkan <strong>UU No. 12/2012 tentang Pendidikan Tinggi</strong>, Pemerintah Indonesia berkewajiban meningkatkan akses dan kesempatan belajar di Perguruan Tinggi serta menyiapkan insan Indonesia yang cerdas dan kompetitif. Oleh karena itu Pemerintah akan selalu berupaya untuk menjamin, bahwa anak Indonesia yang kurang mampu terutama yang memiliki prestasi akan dapat terus menempuh pendidikan hingga jenjang kuliah melalui Program Indonesia Pintar (PIP).</p>
+            <p>PIP adalah bantuan berupa uang tunai, perluasan akses, dan kesempatan belajar dari pemerintah yang diberikan kepada peserta didik dan mahasiswa yang berasal dari keluarga miskin atau rentan miskin untuk membiayai pendidikan. Hal ini menjadi dasar komitmen pemerintah yang menempatkan akses pendidikan tinggi bagi seluruh masyarakat sebagai salah satu prioritas pembangunan.</p>
+            <p>Melalui PIP di tahun 2020, pemerintah memberikan bantuan pendidikan bagi mahasiswa yang diterima di perguruan tinggi termasuk penyandang disabilitas dalam bentuk Kartu Indonesia Pintar Kuliah (KIP Kuliah) sebagai bukti kehadiran negara untuk membantu warganya memperoleh hak pendidikan tinggi.</p>
+          </div>
+        </details>
+        <div class="uu-badge"><i class="ti ti-scale"></i> UU No. 12/2012 tentang Pendidikan Tinggi</div>
+      </div>
+
+      <!-- MANFAAT -->
+      <div class="wrap section" style="padding-top:0">
+        <div class="section-head">
+          <span class="eyebrow eyebrow-alt">Yang Kamu Dapat</span>
+          <h2>Manfaat beasiswa</h2>
+        </div>
+        <div class="manfaat-grid">
+          <div class="manfaat-item"><div class="icon icon-merah"><i class="ti ti-school"></i></div><h3>Bebas biaya kuliah</h3><p>SPA, SPP Tetap & Variabel ditanggung penuh 8 semester</p></div>
+          <div class="manfaat-item"><div class="icon icon-mint"><i class="ti ti-wallet"></i></div><h3>Uang saku hidup</h3><p>Bantuan biaya hidup cair setiap 3 bulan sekali</p></div>
+          <div class="manfaat-item"><div class="icon icon-oranye"><i class="ti ti-certificate"></i></div><h3>Sejak 2014</h3><p>Dipantau & dievaluasi prestasi akademik secara konsisten</p></div>
+          <div class="manfaat-item"><div class="icon icon-biru"><i class="ti ti-shield-check"></i></div><h3>100% gratis</h3><p>Seluruh proses seleksi tanpa biaya. Abaikan jika ada tagihan</p></div>
+        </div>
+      </div>
+
+      <!-- JADWAL -->
+      <div class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow">Lini Masa</span>
+          <h2>Jadwal pendaftaran 2026</h2>
+          <p>Bersifat tentatif, dapat berubah sewaktu-waktu</p>
+        </div>
+        <div class="tl" id="jadwal-list"></div>
+      </div>
+
+      <!-- SELEKSI -->
+      <div class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow eyebrow-alt">Tahap Seleksi</span>
+          <h2>Wawancara & tes potensi</h2>
+          <p>Keduanya dilakukan sepenuhnya daring</p>
+        </div>
+
+        <div class="seleksi-block">
+          <div class="seleksi-header"><i class="ti ti-microphone"></i><span>Wawancara</span><span class="mode">Daring</span></div>
+          <div class="seleksi-item"><div class="t">Motivasi kuliah & tujuan masa depan</div><div class="d">Apa yang mendorong memilih UTDI dan program studi ini</div></div>
+          <div class="seleksi-item"><div class="t">Komitmen menyelesaikan studi</div><div class="d">Keseriusan menjalani 8 semester penuh sebagai penerima KIP</div></div>
+          <div class="seleksi-item"><div class="t">Kondisi ekonomi keluarga</div><div class="d">Gambaran latar belakang ekonomi yang mendukung kelayakan beasiswa</div></div>
+          <div class="seleksi-item"><div class="t">Keseriusan mengikuti seluruh proses</div><div class="d">Kesiapan pemberkasan, registrasi, dan kewajiban penerima KIP</div></div>
+        </div>
+
+        <div class="seleksi-block">
+          <div class="seleksi-header"><i class="ti ti-brain"></i><span>Tes Potensi Akademik</span><span class="mode">Online</span></div>
+          <div class="seleksi-item"><div class="t">Kemampuan Verbal</div><div class="d">Pemahaman teks, sinonim, analogi kata</div></div>
+          <div class="seleksi-item"><div class="t">Kemampuan Numerik</div><div class="d">Aritmatika, deret angka, logika hitung</div></div>
+          <div class="seleksi-item"><div class="t">Kemampuan Penalaran</div><div class="d">Logika, pola, analisis permasalahan</div></div>
+          <div class="seleksi-item"><div class="t">Jadwal menyesuaikan urutan pendaftaran</div><div class="d">Semakin cepat mendaftar, semakin cepat dijadwalkan</div></div>
+        </div>
+      </div>
+
+      <!-- ALUR (dark background) -->
+      <div style="background:var(--ungu);padding:0.5rem 0 2.5rem;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div class="wrap section" style="padding:1.5rem 0 0;">
+          <div class="section-head">
+            <span class="eyebrow" style="background:var(--mint);color:var(--ungu);">8 Langkah</span>
+            <h2>Alur pendaftaran</h2>
+            <p>Seluruh proses, dari awal sampai akhir, gratis</p>
+          </div>
+          <div class="alur">
+            <div class="alur-item"><div class="alur-num">1</div><h4>Pendaftaran awal di UTDI</h4><p>Isi formulir di <a href="https://utdi.id/kip-kuliah" target="_blank">utdi.id/kip-kuliah</a>. Langkah pertama yang wajib.</p></div>
+            <div class="alur-item"><div class="alur-num">2</div><h4>Cek email & WhatsApp</h4><p>Cek email/WA untuk Token Validation dan Bukti Daftar KIP (PDF). Di PDF ada link grup WA — masuk perlu approval admin.</p></div>
+            <div class="alur-item"><div class="alur-num">3</div><h4>Pantau pembukaan jalur PTS Mandiri</h4><p>Ikuti info terkini di grup WA mengenai pembukaan jalur seleksi mandiri pemerintah.</p></div>
+            <div class="alur-item"><div class="alur-num">4</div><h4>Daftar di Kemendikbud</h4><p>Setelah ada instruksi, daftar di <a href="https://kip-kuliah.kemdikbud.go.id/" target="_blank">kip-kuliah.kemdikbud.go.id</a> jalur mandiri PTS.</p></div>
+            <div class="alur-item"><div class="alur-num">5</div><h4>Seleksi online</h4><p>Wawancara motivasi & TPA dilakukan daring sesuai urutan pendaftaran.</p></div>
+            <div class="alur-item"><div class="alur-num">6</div><h4>Verifikasi berkas</h4><p>Calon yang lolos diminta mengunggah dokumen secara digital.</p></div>
+            <div class="alur-item"><div class="alur-num">7</div><h4>Registrasi PMB UTDI</h4><p>Daftar di <a href="https://pmb.utdi.ac.id" target="_blank">pmb.utdi.ac.id</a> setelah ada instruksi dari panitia.</p></div>
+            <div class="alur-item"><div class="alur-num ok"><i class="ti ti-check"></i></div><h4>Penetapan & NIM</h4><p>Dapatkan SK Penetapan KIP dan Nomor Induk Mahasiswa — lalu siap kuliah!</p><span class="gratis-badge">Seluruh proses GRATIS</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SYARAT -->
+      <div class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow">Berkas</span>
+          <h2>Syarat & berkas pendaftaran</h2>
+          <p>Siapkan dokumen berikut sebelum mendaftar</p>
+        </div>
+        <div class="syarat-note">Wajib memiliki <strong>minimal salah satu</strong> kriteria ekonomi (no. 1–7). Jika tidak, gunakan jalur Surat Keterangan Penghasilan + SKTM (no. 8).</div>
+        <div id="syarat-list"></div>
+        <div class="syarat-footer"><i class="ti ti-file-description" style="vertical-align:-2px;margin-right:5px;color:var(--mint)"></i>Semua dokumen di-scan <strong>asli</strong>, digabung jadi <strong>1 file PDF</strong> per mahasiswa, urutan sesuai nomor di atas.</div>
+      </div>
+
+      <!-- FOOTER -->
+      <div style="background:var(--ungu);border-top:1px solid rgba(255,255,255,0.05);">
+        <div class="wrap footer">
+          <div class="brand">UTDI — KIP Kuliah 2026</div>
+          <div class="addr">Jl. Majapahit No. 143, Karangjambe<br />Banguntapan, Bantul, Yogyakarta 55198</div>
+          <div class="contact"><i class="ti ti-world"></i><a href="https://www.utdi.ac.id" target="_blank">www.utdi.ac.id</a></div>
+          <div class="contact"><i class="ti ti-mail"></i><a href="mailto:admisi@utdi.ac.id">admisi@utdi.ac.id</a></div>
+          <div class="contact"><i class="ti ti-phone"></i><span>08174106654 (Kuindra Iriyanta)</span></div>
+        </div>
+      </div>
+
+    </div><!-- /app -->
+  </div><!-- /scale-wrap -->
 
   <!-- STICKY BAR -->
   <div class="sticky-bar">
-    <div class="info">
-      <strong>KIP Kuliah UTDI 2026</strong>
-      <small>Pendaftaran dibuka · Gratis</small>
-    </div>
-    <a href="#" id="sticky-btn" class="btn-sticky">Daftar Sekarang</a>
+    <div class="sticky-text"><strong>KIP Kuliah UTDI 2026</strong>Pendaftaran dibuka · Gratis</div>
+    <a href="#" id="sticky-btn" class="btn-sticky" target="_blank">Daftar Sekarang</a>
   </div>
 
-  <!-- ===== SCRIPT ===== -->
   <script>
-    // ---- GAS endpoint ----
-    var GAS_URL = 'https://script.google.com/macros/s/AKfycbzBgCvatK9Dj0iRds6mDWhq28OeUanr_5f8ePDqrwGbKy7mIaDGWA12z0dP3n_QOmdo/exec';
+    // ---- scale untuk tampil penuh di GAS iframe ----
+    function applyScale() {
+      var wrap = document.getElementById('scale-wrap');
+      var screenW = window.innerWidth;
+      var designW = 412;
+      if (screenW < designW) {
+        var scale = screenW / designW;
+        wrap.style.transform = 'scale(' + scale + ')';
+        wrap.style.width = designW + 'px';
+        document.body.style.height = (wrap.offsetHeight * scale) + 'px';
+      } else {
+        wrap.style.transform = 'scale(1)';
+        wrap.style.width = '100%';
+        document.body.style.height = 'auto';
+      }
+    }
+    applyScale();
+    window.addEventListener('resize', applyScale);
 
     // ---- render functions ----
-    function renderHero(hero) {
-      document.getElementById('hero-badge').textContent = hero.badge_teks || 'BEASISWA PENUH 2026';
-      document.getElementById('hero-judul').innerHTML = (hero.judul_baris1 || 'Program KIP Kuliah') + '<br>' + (hero
-        .judul_baris2 || 'Universitas Teknologi Digital Indonesia');
-      document.getElementById('hero-tagline').textContent = hero.tagline || '';
-      document.getElementById('h-s1').textContent = hero.stat_mahasiswa || '450+';
-      document.getElementById('h-l1').textContent = hero.stat_label1 || 'Mahasiswa aktif';
-      document.getElementById('h-s2').textContent = hero.stat_semester || '8 Sem';
-      document.getElementById('h-l2').textContent = hero.stat_label2 || 'Durasi beasiswa';
-      document.getElementById('h-s3').textContent = hero.stat_biaya || 'Rp0';
-      document.getElementById('h-l3').textContent = hero.stat_label3 || 'Biaya daftar';
-      var link = hero.link_daftar || '#';
-      document.getElementById('hero-btn').href = link;
-      document.getElementById('sticky-btn').href = link;
-      document.getElementById('nav-cta').href = link;
-      document.getElementById('hero-btn').innerHTML = (hero.btn_teks || 'Daftar Sekarang') + ' <i class="ti ti-arrow-right"></i>';
-    }
-
-    function renderJadwal(jadwal) {
-      var container = document.getElementById('jadwal-list');
-      if (!jadwal || jadwal.length === 0) {
-        container.innerHTML = '<p style="text-align:center;color:var(--gray-500);">Belum ada jadwal.</p>';
-        return;
-      }
-      container.innerHTML = jadwal.map(function(item) {
-        var status = (item.status || '').toLowerCase();
-        var dotClass = 'tl-dot';
-        if (status.includes('buka')) dotClass += ' open';
-        else if (status.includes('selesai') || status.includes('tutup')) dotClass += ' done';
-        var badgeClass = 'status-badge';
-        if (status.includes('buka')) badgeClass += ' buka';
-        else if (status.includes('selesai') || status.includes('tutup')) badgeClass += ' selesai';
+    function renderJadwal(data) {
+      document.getElementById('jadwal-list').innerHTML = data.map(function(d) {
+        var buka = d.status.toUpperCase() === 'BUKA';
         return '<div class="tl-item">' +
-          '<div class="' + dotClass + '"></div>' +
-          '<div class="agenda">' + (item.agenda || 'Agenda') +
-          ' <span class="' + badgeClass + '">' + (item.status || 'Mendatang') + '</span>' +
-          '</div>' +
-          '<div class="date"><i class="ti ti-calendar"></i> ' + (item.tanggal || '—') +
-          (item.keterangan ? ' · ' + item.keterangan : '') + '</div>' +
+          '<div class="tl-dot' + (buka ? ' buka' : '') + '"></div>' +
+          '<div class="tl-agenda">' + d.agenda + (buka ? ' <span class="tl-badge">BUKA</span>' : '') + '</div>' +
+          '<div class="tl-tgl">' + d.tanggal + ' · ' + d.keterangan + '</div>' +
           '</div>';
       }).join('');
     }
 
-    function renderSyarat(syarat) {
-      var container = document.getElementById('syarat-list');
-      if (!syarat || syarat.length === 0) {
-        container.innerHTML = '<p style="text-align:center;color:var(--gray-500);">Belum ada data syarat.</p>';
-        return;
-      }
-      // group by tipe
-      var groups = {};
-      syarat.forEach(function(item) {
-        var tipe = item.tipe || 'WAJIB';
-        if (!groups[tipe]) groups[tipe] = [];
-        groups[tipe].push(item);
+    function renderSyarat(data) {
+      var gl = { EKONOMI: 'Kriteria ekonomi (wajib minimal 1 dari 7)', ALTERNATIF: 'Jalur alternatif', WAJIB: 'Dokumen wajib', OPSIONAL: 'Dokumen tambahan' };
+      var html = '',
+        cur = '';
+      data.forEach(function(item) {
+        if (item.tipe !== cur) {
+          cur = item.tipe;
+          html += '<div class="syarat-grup">' + (gl[item.tipe] || item.tipe) + '</div>';
+        }
+        var isAlt = item.tipe === 'ALTERNATIF';
+        var bc = item.tipe === 'WAJIB' ? 'W' : item.tipe === 'OPSIONAL' ? 'O' : item.tipe === 'EKONOMI' ? 'E' : 'A';
+        html += '<div class="syarat-item">' +
+          '<div class="syarat-no' + (isAlt ? ' alt' : '') + '">' + item.no + '</div>' +
+          '<div><div class="syarat-teks">' + item.dokumen + '<span class="tag-tipe tag-' + bc + '">' + item.tipe + '</span></div>' +
+          (item.keterangan ? '<div class="syarat-ket">' + item.keterangan + '</div>' : '') +
+          '</div></div>';
       });
-      var typeLabels = {
-        'EKONOMI': 'Kriteria ekonomi (wajib minimal 1 dari 7)',
-        'ALTERNATIF': 'Jalur alternatif',
-        'WAJIB': 'Dokumen wajib',
-        'OPSIONAL': 'Dokumen tambahan'
-      };
-      var html = '';
-      Object.keys(groups).forEach(function(key) {
-        html += '<div style="grid-column:1/-1;font-weight:700;font-size:0.8rem;color:var(--purple);margin-top:0.8rem;letter-spacing:0.04em;text-transform:uppercase;">' +
-          (typeLabels[key] || key) + '</div>';
-        groups[key].forEach(function(item) {
-          var typeClass = (item.tipe || 'wajib').toLowerCase();
-          var label = item.tipe || 'Wajib';
-          html += '<div class="syarat-card">' +
-            '<div class="top"><span class="no">#' + (item.no || '•') +
-            '</span><span class="type ' + typeClass + '">' + label + '</span></div>' +
-            '<div class="dokumen">' + (item.dokumen || 'Dokumen') + '</div>' +
-            (item.keterangan ? '<div class="ket">' + item.keterangan + '</div>' : '') +
-            '</div>';
-        });
-      });
-      container.innerHTML = html;
+      document.getElementById('syarat-list').innerHTML = html;
     }
 
-    // ---- JSONP callback ----
+    function renderHero(h) {
+      document.getElementById('hero-badge').textContent = h.badge_teks || '';
+      document.getElementById('hero-judul').innerHTML = (h.judul_baris1 || '') + '<br>' + (h.judul_baris2 || '');
+      document.getElementById('hero-tagline').textContent = h.tagline || '';
+      document.getElementById('h-s1').textContent = h.stat_mahasiswa || '';
+      document.getElementById('h-l1').textContent = h.stat_label1 || '';
+      document.getElementById('h-s2').textContent = h.stat_semester || '';
+      document.getElementById('h-l2').textContent = h.stat_label2 || '';
+      document.getElementById('h-s3').textContent = h.stat_biaya || '';
+      document.getElementById('h-l3').textContent = h.stat_label3 || '';
+      var link = h.link_daftar || '#';
+      document.getElementById('hero-btn').href = link;
+      document.getElementById('sticky-btn').href = link;
+      document.getElementById('hero-btn').innerHTML = (h.btn_teks || 'Daftar Sekarang') + ' <i class="ti ti-arrow-right"></i>';
+    }
+
+    // ---- JSONP load ----
+    var GAS_URL = 'https://script.google.com/macros/s/AKfycbzBgCvatK9Dj0iRds6mDWhq28OeUanr_5f8ePDqrwGbKy7mIaDGWA12z0dP3n_QOmdo/exec';
+
     function kipCallback(config) {
-      renderHero(config.hero || {});
-      renderJadwal(config.jadwal || []);
-      renderSyarat(config.syarat || []);
+      renderHero(config.hero);
+      renderJadwal(config.jadwal);
+      renderSyarat(config.syarat);
       document.getElementById('loading').style.display = 'none';
       document.getElementById('app').style.display = 'block';
+      applyScale();
     }
 
-    // ---- load ----
-    (function load() {
-      var script = document.createElement('script');
-      script.src = GAS_URL + '?mode=jsonp&callback=kipCallback';
-      script.onerror = function() {
+    (function loadJSONP() {
+      var s = document.createElement('script');
+      s.src = GAS_URL + '?mode=jsonp&callback=kipCallback';
+      s.onerror = function() {
         document.getElementById('loading').innerHTML =
-          '<p style="color:var(--red);font-weight:600;">Gagal memuat data. Silakan refresh halaman.</p>';
+          '<p style="color:#B72818;padding:2rem;text-align:center">Gagal memuat data.<br>Silakan refresh halaman.</p>';
       };
-      document.head.appendChild(script);
+      document.head.appendChild(s);
     })();
   </script>
-
 </body>
 </html>
