@@ -49,7 +49,8 @@
     /* scale-wrap hanya untuk konten, BUKAN nav & sticky */
     #scale-wrap { width: 100%; max-width: 100vw; transform-origin: top left; overflow-x: hidden; }
 
-    .section { padding: 48px 0; overflow-x: hidden; }
+    .section { padding: 48px 0; }
+    .wrap.section { overflow: hidden; }
     .section + .section { border-top: 1px solid var(--abu2); }
 
     .label { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; background: var(--abu1); color: var(--abu4); }
@@ -130,7 +131,7 @@
     .tl-badge { background: var(--mint); color: var(--ungu); font-weight: 700; font-size: 0.6rem; padding: 2px 12px; border-radius: 30px; letter-spacing: 0.04em; }
 
     /* KIP CARD WRAP — container card abu seperti seleksi-block */
-    .kip-card-wrap { background: var(--abu1); border-radius: 16px; padding: 16px; margin-top: 16px; box-sizing: border-box; }
+    .kip-card-wrap { background: var(--abu1); border-radius: 16px; padding: 16px; margin: 16px 0 0 0; }
     .kip-card-wrap .card-section-header { padding: 0 0 10px; margin-bottom: 2px; border-bottom: none; }
 
     /* CARD SECTION HEADER — dipakai di manfaat, utdi, seleksi */
@@ -140,7 +141,7 @@
     .mode-badge { margin-left: auto; background: var(--oranye); color: var(--ungu); font-weight: 700; font-size: 0.625rem; padding: 2px 12px; border-radius: 30px; text-transform: uppercase; letter-spacing: 0.04em; font-family: var(--font); }
 
     /* SELEKSI */
-    .seleksi-block { background: var(--abu1); border-radius: 16px; padding: 16px; margin-bottom: 16px; box-sizing: border-box; }
+    .seleksi-block { background: var(--abu1); border-radius: 16px; padding: 16px; margin-bottom: 16px; }
     .seleksi-block:last-child { margin-bottom: 0; }
     .seleksi-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .seleksi-header i { font-size: 1.2rem; color: var(--biru); }
