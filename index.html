@@ -256,20 +256,20 @@
     <!-- MANFAAT -->
     <div class="wrap section">
       <span class="label oranye">Yang Kamu Dapat</span>
-      <h2>Apa Keuntungan KIP Kuliah?</h2>
-      <div class="manfaat-grid">
-        <div class="manfaat-item"><div class="icon icon-m"><i class="ti ti-school"></i></div><h3>Biaya pendidikan ditanggung</h3><p>Biaya pendidikan ditanggung pemerintah selama masa studi</p></div>
-        <div class="manfaat-item"><div class="icon icon-mint"><i class="ti ti-wallet"></i></div><h3>Bantuan biaya hidup</h3><p>Mendapat bantuan biaya hidup sesuai ketentuan program</p></div>
-        <div class="manfaat-item"><div class="icon icon-o"><i class="ti ti-building-community"></i></div><h3>Berlaku di PTS</h3><p>Dapat digunakan untuk kuliah di perguruan tinggi swasta yang menerima KIP Kuliah</p></div>
-        <div class="manfaat-item"><div class="icon icon-b"><i class="ti ti-rocket"></i></div><h3>Karier lebih baik</h3><p>Kesempatan meraih pendidikan tinggi dan karier yang lebih baik</p></div>
+      <h2 id="manfaat-title">Apa Keuntungan KIP Kuliah?</h2>
+      <div class="manfaat-list" id="manfaat-list">
+        <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Biaya pendidikan ditanggung pemerintah</strong><p>Biaya pendidikan ditanggung pemerintah selama masa studi berlangsung</p></div></div>
+        <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Bantuan biaya hidup</strong><p>Mendapat bantuan biaya hidup sesuai ketentuan program</p></div></div>
+        <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Berlaku di perguruan tinggi swasta</strong><p>Dapat digunakan untuk kuliah di PTS yang menerima KIP Kuliah</p></div></div>
+        <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Karier lebih baik</strong><p>Kesempatan meraih pendidikan tinggi dan karier yang lebih baik</p></div></div>
       </div>
     </div>
 
     <!-- MENGAPA UTDI -->
     <div class="wrap section">
       <span class="label ungu">Pilihan Tepat</span>
-      <h2>Mengapa Memilih UTDI?</h2>
-      <div class="utdi-grid">
+      <h2 id="utdi-title">Mengapa Memilih UTDI?</h2>
+      <div class="utdi-grid" id="utdi-grid">
         <div class="utdi-item">
           <div class="utdi-emoji">💻</div>
           <div>
@@ -351,10 +351,10 @@
     <div class="cta-section">
       <div class="wrap">
         <div class="cta-icon">🎓</div>
-        <h2 class="cta-title">Jangan Biarkan Biaya Menghalangi Masa Depanmu</h2>
-        <p class="cta-desc">Jika kamu memiliki semangat belajar, prestasi, dan keinginan untuk berkembang di dunia teknologi, manfaatkan kesempatan melalui program KIP Kuliah di UTDI.</p>
-        <p class="cta-sub">Daftar sekarang melalui PMB UTDI dan pilih <strong>Jalur KIP Kuliah</strong>.</p>
-        <a href="#" id="cta-btn" class="btn-cta" target="_blank">DAFTAR KIP KULIAH <i class="ti ti-arrow-right"></i></a>
+        <h2 class="cta-title" id="cta-judul">Jangan Biarkan Biaya Menghalangi Masa Depanmu</h2>
+        <p class="cta-desc" id="cta-desc">Jika kamu memiliki semangat belajar, prestasi, dan keinginan untuk berkembang di dunia teknologi, manfaatkan kesempatan melalui program KIP Kuliah di UTDI.</p>
+        <p class="cta-sub" id="cta-sub">Daftar sekarang melalui PMB UTDI dan pilih <strong>Jalur KIP Kuliah</strong>.</p>
+        <a href="#" id="cta-btn" class="btn-cta" target="_blank"><span id="cta-btn-teks">DAFTAR KIP KULIAH</span> <i class="ti ti-arrow-right"></i></a>
       </div>
     </div>
 
@@ -453,6 +453,46 @@
     }).join('');
   }
 
+  function renderCTA(c) {
+    if (!c || !c.judul) return;
+    var setText = function(id,v){var e=document.getElementById(id);if(e)e.textContent=v||'';};
+    setText('cta-judul', c.judul);
+    setText('cta-desc',  c.deskripsi);
+    setText('cta-sub',   c.sub);
+    setText('cta-btn-teks', c.btn_teks);
+    if (c.btn_link) { var b=document.getElementById('cta-btn'); if(b) b.href=c.btn_link; }
+  }
+
+  function renderUTDI(u) {
+    if (!u) return;
+    var t = document.getElementById('utdi-title');
+    if (t && u.title) t.textContent = u.title;
+    if (!u.items || !u.items.length) return;
+    var el = document.getElementById('utdi-grid');
+    if (!el) return;
+    el.innerHTML = u.items.map(function(item) {
+      var j = item.judul || '';
+      var emoji = j.substring(0,2);
+      var title = j.substring(2).trim();
+      return '<div class="utdi-item"><div class="utdi-emoji">'+emoji+'</div><div><h3>'+title+'</h3><p>'+(item.deskripsi||'')+'</p></div></div>';
+    }).join('');
+  }
+
+  function renderManfaat(m) {
+    if (!m) return;
+    var t = document.getElementById('manfaat-title');
+    if (t && m.title) t.textContent = m.title;
+    if (!m.items || !m.items.length) return;
+    var el = document.getElementById('manfaat-list');
+    if (!el) return;
+    el.innerHTML = m.items.map(function(item) {
+      var j = item.judul || '';
+      var emoji = j.substring(0,2);
+      var title = j.substring(2).trim();
+      return '<div class="manfaat-row"><span class="manfaat-icon">'+emoji+'</span><div><strong>'+title+'</strong><p>'+(item.deskripsi||'')+'</p></div></div>';
+    }).join('');
+  }
+
   function renderHero(h) {
     var s = function(id,v){var e=document.getElementById(id);if(e)e.textContent=v||'';};
     var a = function(id,attr,v){var e=document.getElementById(id);if(e)e.setAttribute(attr,v||'#');};
@@ -475,7 +515,10 @@
     renderHero(config.hero || {});
     renderJadwal(config.jadwal || []);
     renderSyarat(config.syarat || []);
-    if (config.alur && config.alur.length) renderAlur(config.alur);
+    if (config.alur    && config.alur.length) renderAlur(config.alur);
+    if (config.cta)     renderCTA(config.cta);
+    if (config.utdi)    renderUTDI(config.utdi);
+    if (config.manfaat) renderManfaat(config.manfaat);
     document.getElementById('loading').style.display = 'none';
     document.getElementById('app').style.display = 'block';
     applyScale();
