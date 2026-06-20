@@ -30,7 +30,7 @@
       background: var(--putih);
       color: var(--ungu);
       font-family: var(--font);
-      padding-bottom: 96px;
+      padding-bottom: 0; /* sticky bar bawah sudah fixed */
       -webkit-font-smoothing: antialiased;
     }
     a { text-decoration: none; color: inherit; }
@@ -114,19 +114,19 @@
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 162, 19, 0.35); }
 
     /* ============================================================
-       NAV – STICKY dengan biru tua (#130358)
+       NAVBAR STICKY ATAS – WARNA UNGU #130358
     ============================================================ */
     nav {
       position: sticky;
       top: 0;
       z-index: 1000;
+      background: var(--ungu); /* #130358 */
       display: flex;
       align-items: center;
       gap: 12px;
       padding: 12px 20px;
-      background: var(--ungu); /* biru tua #130358 */
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 2px 12px rgba(19, 3, 88, 0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 2px 12px rgba(19, 3, 88, 0.3);
     }
     .nav-logo {
       width: 38px;
@@ -147,7 +147,7 @@
     }
     .nav-sub {
       font-size: 0.7rem;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255,255,255,0.5);
       letter-spacing: 0.02em;
     }
 
@@ -155,6 +155,7 @@
     .hero {
       text-align: center;
       padding: 24px 0 40px;
+      background: var(--putih);
     }
     .hero h1 {
       font-size: 2.4rem;
@@ -591,25 +592,26 @@
     footer .contact a:hover { opacity: 1; }
 
     /* ============================================================
-       STICKY BAR BAWAH – BIRU #4B75FF (tetap)
+       STICKY BAR BAWAH – WARNA UNGU #130358
     ============================================================ */
     .sticky-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: var(--biru);
+      background: var(--ungu); /* #130358 */
       padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       z-index: 1050;
-      box-shadow: 0 -4px 24px rgba(75, 117, 255, 0.3);
+      border-top: 2px solid var(--oranye);
+      box-shadow: 0 -4px 24px rgba(19, 3, 88, 0.4);
     }
     .sticky-text {
       font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.6);
       line-height: 1.3;
     }
     .sticky-text strong {
@@ -630,7 +632,7 @@
       transition: 0.2s;
       white-space: nowrap;
     }
-    .btn-sticky:hover { transform: scale(1.04); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+    .btn-sticky:hover { transform: scale(1.04); box-shadow: 0 4px 16px rgba(255, 162, 19, 0.3); }
 
     /* ---- responsive ---- */
     @media (max-width: 480px) {
@@ -641,7 +643,6 @@
       h2 { font-size: 1.5rem; }
       .sticky-text strong { font-size: 0.8rem; }
       .btn-sticky { font-size: 0.75rem; padding: 6px 14px; }
-      nav { padding: 10px 16px; }
     }
 
     /* scale fix for GAS */
@@ -663,7 +664,7 @@
 
   <!-- APP -->
   <div id="app">
-    <!-- NAV – STICKY dengan biru tua -->
+    <!-- NAVBAR STICKY ATAS – UNGU -->
     <nav>
       <div class="nav-logo">UT</div>
       <div>
@@ -814,7 +815,7 @@
   </div>
 </div>
 
-<!-- STICKY BAR BAWAH – BIRU -->
+<!-- STICKY BAR BAWAH – UNGU -->
 <div class="sticky-bar">
   <div class="sticky-text"><strong>KIP Kuliah UTDI 2026</strong>Pendaftaran dibuka · Gratis</div>
   <a href="#" id="sticky-btn" class="btn-sticky" target="_blank">Daftar Sekarang</a>
