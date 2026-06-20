@@ -22,11 +22,12 @@
   --font-d:'Fraunces',serif;
   --font-b:'Inter',sans-serif;
 }
-*{box-sizing:border-box;}
+*{box-sizing:border-box;min-width:0;}
+html,body{overflow-x:hidden;max-width:100vw;}
 html{font-size:16px;}
-body{margin:0;font-family:var(--font-b);background:var(--paper);color:var(--text);padding-bottom:96px;-webkit-text-size-adjust:none;text-size-adjust:none;}
+body{margin:0;font-family:var(--font-b);background:var(--paper);color:var(--text);padding-bottom:96px;-webkit-text-size-adjust:none;text-size-adjust:none;overflow-wrap:break-word;word-break:break-word;}
 a{text-decoration:none;}
-#scale-wrap{width:100%;transform-origin:top left;}
+#scale-wrap{width:100%;max-width:100vw;transform-origin:top left;overflow-x:hidden;}
 
 .dotgrid{background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:18px 18px;}
 .dark-sec{background:linear-gradient(165deg,var(--ink) 0%,var(--navy) 55%,var(--navy-2) 100%);position:relative;}
