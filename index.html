@@ -40,7 +40,7 @@
       border-bottom: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 2px 12px rgba(19, 3, 88, 0.3);
     }
-    .nav-logo { width: 38px; height: 38px; border-radius: 10px; background: var(--oranye); color: var(--ungu); font-weight: 900; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+
     .nav-title { font-weight: 700; font-size: 1rem; color: #fff; }
     .nav-sub { font-size: 0.7rem; color: rgba(255,255,255,0.5); letter-spacing: 0.02em; }
 
@@ -193,7 +193,8 @@
 
 <!-- NAVBAR — di luar scale-wrap agar sticky bekerja normal -->
 <nav>
-  <div class="nav-logo">UT</div>
+  <img src="https://raw.githubusercontent.com/admisi-utdi/assets/main/UTDI%201B.png"
+       alt="UTDI" style="height:36px;width:auto;object-fit:contain;flex-shrink:0;">
   <div>
     <div class="nav-title">UTDI</div>
     <div class="nav-sub">Universitas Teknologi Digital Indonesia</div>
@@ -388,6 +389,22 @@
     el.innerHTML = html;
   }
 
+  function renderAlur(data) {
+    var el = document.querySelector('.alur');
+    if (!el) return;
+    el.innerHTML = data.map(function(item, i) {
+      var isLast = i === data.length - 1;
+      return '<div class="alur-item">' +
+        '<div class="alur-num' + (isLast ? ' ok' : '') + '">' +
+        (isLast ? '<i class="ti ti-check"></i>' : (item.no || (i+1))) +
+        '</div>' +
+        '<h4>' + (item.judul||'') + '</h4>' +
+        '<p>' + (item.deskripsi||'') + '</p>' +
+        (isLast ? '<span class="gratis-badge">Seluruh proses GRATIS</span>' : '') +
+        '</div>';
+    }).join('');
+  }
+
   function renderHero(h) {
     var s = function(id,v){var e=document.getElementById(id);if(e)e.textContent=v||'';};
     var a = function(id,attr,v){var e=document.getElementById(id);if(e)e.setAttribute(attr,v||'#');};
@@ -409,6 +426,7 @@
     renderHero(config.hero || {});
     renderJadwal(config.jadwal || []);
     renderSyarat(config.syarat || []);
+    if (config.alur && config.alur.length) renderAlur(config.alur);
     document.getElementById('loading').style.display = 'none';
     document.getElementById('app').style.display = 'block';
     applyScale();
