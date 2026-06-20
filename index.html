@@ -323,8 +323,12 @@ function renderHero(h){
   document.getElementById('hero-btn').textContent=h.btn_teks||'Daftar Sekarang';
 }
 
-google.script.run
-  .withSuccessHandler(function(config){
+//// ── GANTI URL INI DENGAN URL GAS DEPLOYMENT BAPAK ──
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbzBgCvatK9Dj0iRds6mDWhq28OeUanr_5f8ePDqrwGbKy7mIaDGWA12z0dP3n_QOmdo/exec';
+
+fetch(GAS_URL)
+  .then(function(res){ return res.json(); })
+  .then(function(config){
     renderHero(config.hero);
     renderJadwal(config.jadwal);
     renderSyarat(config.syarat);
@@ -332,11 +336,10 @@ google.script.run
     document.getElementById('app').style.display='block';
     applyScale();
   })
-  .withFailureHandler(function(err){
+  .catch(function(err){
     document.getElementById('loading').innerHTML=
-      '<p style="color:#B91C1C;font-size:1.0625rem;padding:2rem;text-align:center">Gagal memuat data.<br>Silakan refresh halaman.<br><small style="color:#64748b">'+err.message+'</small></p>';
-  })
-  .getAllConfig();
+      '<p style="color:#B91C1C;font-size:1.0625rem;padding:2rem;text-align:center">Gagal memuat data.<br>Silakan refresh halaman.<br><small style="color:#64748b">'+String(err)+'</small></p>';
+  });
 </script>
 </body>
 </html>
