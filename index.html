@@ -113,29 +113,43 @@
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 162, 19, 0.35); }
 
-    /* ---- NAV ---- */
+    /* ============================================================
+       NAV – STICKY dengan biru tua (#130358)
+    ============================================================ */
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 16px 20px 8px;
-      background: var(--putih);
-      border-bottom: 1px solid var(--abu2);
+      padding: 12px 20px;
+      background: var(--ungu); /* biru tua #130358 */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 12px rgba(19, 3, 88, 0.2);
     }
     .nav-logo {
       width: 38px;
       height: 38px;
       border-radius: 10px;
-      background: var(--ungu);
-      color: #fff;
+      background: var(--oranye);
+      color: var(--ungu);
       font-weight: 900;
       font-size: 0.8rem;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .nav-title { font-weight: 700; font-size: 1rem; }
-    .nav-sub { font-size: 0.7rem; color: var(--abu3); }
+    .nav-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .nav-sub {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.02em;
+    }
 
     /* ---- HERO ---- */
     .hero {
@@ -577,14 +591,14 @@
     footer .contact a:hover { opacity: 1; }
 
     /* ============================================================
-       STICKY BAR – BIRU #4B75FF
+       STICKY BAR BAWAH – BIRU #4B75FF (tetap)
     ============================================================ */
     .sticky-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: var(--biru); /* #4B75FF */
+      background: var(--biru);
       padding: 10px 16px;
       display: flex;
       align-items: center;
@@ -627,6 +641,7 @@
       h2 { font-size: 1.5rem; }
       .sticky-text strong { font-size: 0.8rem; }
       .btn-sticky { font-size: 0.75rem; padding: 6px 14px; }
+      nav { padding: 10px 16px; }
     }
 
     /* scale fix for GAS */
@@ -648,7 +663,7 @@
 
   <!-- APP -->
   <div id="app">
-    <!-- NAV -->
+    <!-- NAV – STICKY dengan biru tua -->
     <nav>
       <div class="nav-logo">UT</div>
       <div>
@@ -799,7 +814,7 @@
   </div>
 </div>
 
-<!-- STICKY BAR – BIRU -->
+<!-- STICKY BAR BAWAH – BIRU -->
 <div class="sticky-bar">
   <div class="sticky-text"><strong>KIP Kuliah UTDI 2026</strong>Pendaftaran dibuka · Gratis</div>
   <a href="#" id="sticky-btn" class="btn-sticky" target="_blank">Daftar Sekarang</a>
