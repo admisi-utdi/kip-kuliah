@@ -129,8 +129,8 @@
     .tl-badge { background: var(--mint); color: var(--ungu); font-weight: 700; font-size: 0.6rem; padding: 2px 12px; border-radius: 30px; letter-spacing: 0.04em; }
 
     /* KIP CARD WRAP — container card abu seperti seleksi-block */
-    .kip-card-wrap { background: var(--abu1); border-radius: 16px; padding: 0 20px 16px; margin-top: 16px; border: 1px solid var(--abu2); }
-    .kip-card-wrap .card-section-header { padding: 16px 0 12px; }
+    .kip-card-wrap { background: var(--abu1); border-radius: 16px; padding: 20px 20px 12px; margin-top: 16px; }
+    .kip-card-wrap .card-section-header { padding: 0 0 12px; margin-bottom: 4px; border-bottom: none; }
 
     /* CARD SECTION HEADER — dipakai di manfaat, utdi, seleksi */
     .card-section-header { display: flex; align-items: center; gap: 10px; padding: 14px 0 10px; border-bottom: 1px solid var(--abu2); margin-bottom: 2px; }
@@ -271,10 +271,10 @@
       <div class="kip-card-wrap">
         <div class="card-section-header"><i class="ti ti-gift"></i><span>Keuntungan program</span><span class="mode-badge">KIP Kuliah</span></div>
         <div id="manfaat-list">
-        <div class="manfaat-row"><strong>Biaya pendidikan ditanggung pemerintah</strong><p>Biaya pendidikan ditanggung pemerintah selama masa studi berlangsung</p></div>
-        <div class="manfaat-row"><strong>Bantuan biaya hidup</strong><p>Mendapat bantuan biaya hidup sesuai ketentuan program</p></div>
-        <div class="manfaat-row"><strong>Berlaku di perguruan tinggi swasta</strong><p>Dapat digunakan untuk kuliah di PTS yang menerima KIP Kuliah</p></div>
-        <div class="manfaat-row"><strong>Karier lebih baik</strong><p>Kesempatan meraih pendidikan tinggi dan karier yang lebih baik</p></div>
+        <div class="seleksi-item"><div class="t">Biaya pendidikan ditanggung pemerintah</div><div class="d">Biaya pendidikan ditanggung pemerintah selama masa studi berlangsung</div></div>
+        <div class="seleksi-item"><div class="t">Bantuan biaya hidup</div><div class="d">Mendapat bantuan biaya hidup sesuai ketentuan program</div></div>
+        <div class="seleksi-item"><div class="t">Berlaku di perguruan tinggi swasta</div><div class="d">Dapat digunakan untuk kuliah di PTS yang menerima KIP Kuliah</div></div>
+        <div class="seleksi-item"><div class="t">Karier lebih baik</div><div class="d">Kesempatan meraih pendidikan tinggi dan karier yang lebih baik</div></div>
         </div>
       </div>
     </div>
@@ -286,34 +286,10 @@
       <div class="kip-card-wrap">
         <div class="card-section-header"><i class="ti ti-building-community"></i><span>Keunggulan UTDI</span><span class="mode-badge">Sejak 1979</span></div>
         <div id="utdi-grid">
-        <div class="utdi-item">
-          <div class="utdi-emoji">💻</div>
-          <div>
-            <h3>Kampus teknologi berpengalaman</h3>
-            <p>Berdiri sejak 1979, UTDI telah menghasilkan ribuan lulusan di bidang teknologi digital</p>
-          </div>
-        </div>
-        <div class="utdi-item">
-          <div class="utdi-emoji">🚀</div>
-          <div>
-            <h3>Program studi relevan industri</h3>
-            <p>Program studi yang relevan dengan kebutuhan industri digital saat ini dan masa depan</p>
-          </div>
-        </div>
-        <div class="utdi-item">
-          <div class="utdi-emoji">🎯</div>
-          <div>
-            <h3>Pembelajaran berbasis praktik</h3>
-            <p>Kurikulum berbasis praktik dan proyek nyata yang mempersiapkan mahasiswa siap kerja</p>
-          </div>
-        </div>
-        <div class="utdi-item">
-          <div class="utdi-emoji">🤝</div>
-          <div>
-            <h3>Dukungan karier mahasiswa</h3>
-            <p>Dukungan pengembangan kompetensi dan karier mahasiswa selama dan setelah studi</p>
-          </div>
-        </div>
+        <div class="seleksi-item"><div class="t">Kampus teknologi berpengalaman</div><div class="d">Berdiri sejak 1979, UTDI telah menghasilkan ribuan lulusan di bidang teknologi digital</div></div>
+        <div class="seleksi-item"><div class="t">Program studi relevan industri</div><div class="d">Program studi yang relevan dengan kebutuhan industri digital saat ini dan masa depan</div></div>
+        <div class="seleksi-item"><div class="t">Pembelajaran berbasis praktik</div><div class="d">Kurikulum berbasis praktik dan proyek nyata yang mempersiapkan mahasiswa siap kerja</div></div>
+        <div class="seleksi-item"><div class="t">Dukungan karier mahasiswa</div><div class="d">Dukungan pengembangan kompetensi dan karier mahasiswa selama dan setelah studi</div></div>
       </div>
     </div>
 
@@ -507,7 +483,7 @@
     if (!el) return;
     el.innerHTML = u.items.map(function(item) {
       var p = stripEmoji(item.judul || '');
-      return '<div class="utdi-item"><h3>'+p.title+'</h3><p>'+(item.deskripsi||'')+'</p></div>';
+      return '<div class="seleksi-item"><div class="t">'+p.title+'</div><div class="d">'+(item.deskripsi||'')+'</div></div>';
     }).join('');
   }
 
@@ -520,7 +496,7 @@
     if (!el) return;
     el.innerHTML = m.items.map(function(item) {
       var p = stripEmoji(item.judul || '');
-      return '<div class="manfaat-row"><strong>'+p.title+'</strong><p>'+(item.deskripsi||'')+'</p></div>';
+      return '<div class="seleksi-item"><div class="t">'+p.title+'</div><div class="d">'+(item.deskripsi||'')+'</div></div>';
     }).join('');
   }
 
