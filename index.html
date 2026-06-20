@@ -17,10 +17,10 @@
       --abu3: #8e8ea0; --abu4: #4a4a5a;
       --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    html, body { background: var(--putih); color: var(--ungu); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+    html, body { background: var(--putih); color: var(--ungu); font-family: var(--font); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     body { padding-bottom: 80px; }
     a { text-decoration: none; color: inherit; }
-    .wrap { max-width: 100%; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
 
     /* loading */
     #loading { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; gap: 16px; }
@@ -130,7 +130,7 @@
     .tl-badge { background: var(--mint); color: var(--ungu); font-weight: 700; font-size: 0.6rem; padding: 2px 12px; border-radius: 30px; letter-spacing: 0.04em; }
 
     /* KIP CARD WRAP — container card abu seperti seleksi-block */
-    .kip-card-wrap { background: var(--abu1); border-radius: 16px; padding: 16px 16px 12px; margin-top: 16px; width: 100%; box-sizing: border-box; }
+    .kip-card-wrap { background: var(--abu1); border-radius: 16px; padding: 16px; margin-top: 16px; box-sizing: border-box; }
     .kip-card-wrap .card-section-header { padding: 0 0 10px; margin-bottom: 2px; border-bottom: none; }
 
     /* CARD SECTION HEADER — dipakai di manfaat, utdi, seleksi */
@@ -140,7 +140,7 @@
     .mode-badge { margin-left: auto; background: var(--oranye); color: var(--ungu); font-weight: 700; font-size: 0.625rem; padding: 2px 12px; border-radius: 30px; text-transform: uppercase; letter-spacing: 0.04em; font-family: var(--font); }
 
     /* SELEKSI */
-    .seleksi-block { background: var(--abu1); border-radius: 16px; padding: 16px 16px 12px; margin-bottom: 16px; width: 100%; box-sizing: border-box; }
+    .seleksi-block { background: var(--abu1); border-radius: 16px; padding: 16px; margin-bottom: 16px; box-sizing: border-box; }
     .seleksi-block:last-child { margin-bottom: 0; }
     .seleksi-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .seleksi-header i { font-size: 1.2rem; color: var(--biru); }
@@ -193,7 +193,6 @@
     .btn-sticky:hover { transform: scale(1.04); }
 
     @media (max-width: 480px) {
-      .wrap { padding: 0 16px; max-width: 100%; }
       .hero h1 { font-size: 1.9rem; }
       .tentang-grid, .manfaat-grid { grid-template-columns: 1fr; }
       .section { padding: 32px 0; }
