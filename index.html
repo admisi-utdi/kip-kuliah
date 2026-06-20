@@ -447,12 +447,17 @@
 
   function renderCTA(c) {
     if (!c || !c.judul) return;
-    var setText = function(id,v){var e=document.getElementById(id);if(e)e.textContent=v||'';};
-    setText('cta-judul', c.judul);
-    setText('cta-desc',  c.deskripsi);
-    setText('cta-sub',   c.sub);
-    setText('cta-btn-teks', c.btn_teks);
-    if (c.btn_link) { var b=document.getElementById('cta-btn'); if(b) b.href=c.btn_link; }
+    var s = function(id,v){var e=document.getElementById(id);if(e)e.textContent=v||'';};
+    var h = function(id,v){var e=document.getElementById(id);if(e)e.innerHTML=v||'';};
+    s('cta-judul',    c.judul);
+    s('cta-desc',     c.deskripsi);
+    h('cta-sub',      c.sub ? c.sub.replace('Jalur KIP Kuliah','<strong>Jalur KIP Kuliah</strong>') : '');
+    s('cta-btn-teks', c.btn_teks || 'DAFTAR KIP KULIAH');
+    var link = c.btn_link || 'https://utdi.id/kip-kuliah';
+    var b = document.getElementById('cta-btn');
+    if (b) b.href = link;
+    var sb = document.getElementById('sticky-btn');
+    if (sb) sb.href = link;
   }
 
 
@@ -523,7 +528,14 @@
     renderJadwal(config.jadwal || []);
     renderSyarat(config.syarat || []);
     if (config.alur    && config.alur.length) renderAlur(config.alur);
-    if (config.cta)     renderCTA(config.cta);
+    if (config.cta && config.cta.judul) {
+      renderCTA(config.cta);
+    } else {
+      // Fallback: set link CTA dari hero jika sheet CTA belum ada
+      var link = (config.hero && config.hero.link_daftar) || 'https://utdi.id/kip-kuliah';
+      var b = document.getElementById('cta-btn');
+      if (b) b.href = link;
+    }
     if (config.utdi)    renderUTDI(config.utdi);
     if (config.manfaat) renderManfaat(config.manfaat);
     document.getElementById('loading').style.display = 'none';
