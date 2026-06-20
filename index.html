@@ -127,6 +127,12 @@
     .tl-tgl { font-size: 0.9rem; color: var(--abu3); margin-top: 2px; }
     .tl-badge { background: var(--mint); color: var(--ungu); font-weight: 700; font-size: 0.6rem; padding: 2px 12px; border-radius: 30px; letter-spacing: 0.04em; }
 
+    /* CARD SECTION HEADER — dipakai di manfaat, utdi, seleksi */
+    .card-section-header { display: flex; align-items: center; gap: 10px; padding: 14px 0 10px; border-bottom: 1px solid var(--abu2); margin-bottom: 2px; }
+    .card-section-header i { font-size: 1.125rem; color: var(--biru); }
+    .card-section-header > span:first-of-type { font-weight: 700; font-size: 0.9375rem; color: var(--ungu); font-family: var(--font); }
+    .mode-badge { margin-left: auto; background: var(--oranye); color: var(--ungu); font-weight: 700; font-size: 0.625rem; padding: 2px 12px; border-radius: 30px; text-transform: uppercase; letter-spacing: 0.04em; font-family: var(--font); }
+
     /* SELEKSI */
     .seleksi-block { background: var(--abu1); border-radius: 16px; padding: 20px 20px 12px; margin-bottom: 16px; }
     .seleksi-block:last-child { margin-bottom: 0; }
@@ -258,6 +264,7 @@
       <span class="label oranye">Yang Kamu Dapat</span>
       <h2 id="manfaat-title">Apa Keuntungan KIP Kuliah?</h2>
       <div class="manfaat-list" id="manfaat-list">
+        <div class="card-section-header"><i class="ti ti-gift"></i><span>Keuntungan program</span><span class="mode-badge">KIP Kuliah</span></div>
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Biaya pendidikan ditanggung pemerintah</strong><p>Biaya pendidikan ditanggung pemerintah selama masa studi berlangsung</p></div></div>
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Bantuan biaya hidup</strong><p>Mendapat bantuan biaya hidup sesuai ketentuan program</p></div></div>
         <div class="manfaat-row"><span class="manfaat-icon">&#x2705;</span><div><strong>Berlaku di perguruan tinggi swasta</strong><p>Dapat digunakan untuk kuliah di PTS yang menerima KIP Kuliah</p></div></div>
@@ -270,6 +277,7 @@
       <span class="label ungu">Pilihan Tepat</span>
       <h2 id="utdi-title">Mengapa Memilih UTDI?</h2>
       <div class="utdi-grid" id="utdi-grid">
+        <div class="card-section-header"><i class="ti ti-building-community"></i><span>Keunggulan UTDI</span><span class="mode-badge">Sejak 1979</span></div>
         <div class="utdi-item">
           <div class="utdi-emoji">💻</div>
           <div>
