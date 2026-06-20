@@ -350,10 +350,10 @@
           <span class="mode">Gratis</span>
         </div>
         <div class="seleksi-item">
-          <div class="t" id="cta-desc">Jika kamu memiliki semangat belajar, prestasi, dan keinginan untuk berkembang di dunia teknologi, manfaatkan kesempatan melalui program KIP Kuliah di UTDI.</div>
+          <div class="d" id="cta-desc">Jika kamu memiliki semangat belajar, prestasi, dan keinginan untuk berkembang di dunia teknologi, manfaatkan kesempatan melalui program KIP Kuliah di UTDI.</div>
         </div>
         <div class="seleksi-item">
-          <div class="t" id="cta-sub">Daftar sekarang melalui PMB UTDI dan pilih <strong>Jalur KIP Kuliah</strong>.</div>
+          <div class="d" id="cta-sub">Daftar sekarang melalui PMB UTDI dan pilih <strong style="color:var(--ungu)">Jalur KIP Kuliah</strong>.</div>
         </div>
       </div>
       <div style="margin-top:20px;">
@@ -467,15 +467,15 @@
 
   function renderCTA(c) {
     if (!c || !c.judul) return;
-    var s = function(id,v){var e=document.getElementById(id);if(e)e.textContent=v||'';};
-    var h = function(id,v){var e=document.getElementById(id);if(e)e.innerHTML=v||'';};
+    var s = function(id,v){ var e=document.getElementById(id); if(e) e.textContent = v||''; };
+    var h = function(id,v){ var e=document.getElementById(id); if(e) e.innerHTML   = v||''; };
     s('cta-judul',    c.judul);
-    s('cta-desc',     c.deskripsi);
-    h('cta-sub',      c.sub ? c.sub.replace('Jalur KIP Kuliah','<strong>Jalur KIP Kuliah</strong>') : '');
+    h('cta-desc',     c.deskripsi || '');
+    h('cta-sub',      (c.sub||'').replace('Jalur KIP Kuliah','<strong style="color:var(--ungu)">Jalur KIP Kuliah</strong>'));
     s('cta-btn-teks', c.btn_teks || 'DAFTAR KIP KULIAH');
     var link = c.btn_link || 'https://utdi.id/kip-kuliah';
     ['cta-btn','sticky-btn'].forEach(function(id){
-      var e = document.getElementById(id); if(e) e.href = link;
+      var e = document.getElementById(id); if (e) e.href = link;
     });
   }
 
