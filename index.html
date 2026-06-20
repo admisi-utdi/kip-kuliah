@@ -20,7 +20,7 @@
     html, body { background: var(--putih); color: var(--ungu); font-family: var(--font); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     body { padding-bottom: 80px; }
     a { text-decoration: none; color: inherit; }
-    .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; box-sizing: border-box; overflow: hidden; }
 
     /* loading */
     #loading { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; gap: 16px; }
@@ -67,7 +67,7 @@
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,162,19,0.35); }
 
     /* HERO */
-    .hero { text-align: center; padding: 24px 0 40px; background: var(--putih); }
+    .hero { text-align: center; padding: 24px 0 40px; background: var(--putih); overflow: hidden; }
     .hero h1 { font-size: 2.4rem; font-weight: 900; line-height: 1.1; margin: 16px 0 8px; }
     .hero h1 span { color: var(--merah); }
     .hero .tagline { font-size: 1rem; font-family: var(--font); color: var(--abu3); max-width: 32rem; margin: 0 auto; line-height: 1.6; }
@@ -94,8 +94,8 @@
     .stat-lbl { font-size: 0.65rem; color: var(--abu3); margin-top: 2px; }
 
     /* TENTANG */
-    .tentang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
-    .tentang-card { background: var(--abu1); border-radius: 16px; padding: 20px 16px; border-left: 4px solid var(--biru); }
+    .tentang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; width: 100%; box-sizing: border-box; }
+    .tentang-card { background: var(--abu1); border-radius: 16px; padding: 16px; border-left: 4px solid var(--biru); box-sizing: border-box; }
     .tentang-card .num { font-size: 1.8rem; font-weight: 900; color: var(--ungu); }
     .tentang-card .desc { font-size: 0.9rem; color: var(--abu3); line-height: 1.5; margin-top: 4px; }
     .tentang-lead { font-size: 0.9375rem; line-height: 1.75; font-family: var(--font); color: var(--abu4); }
@@ -141,7 +141,7 @@
 
 
     /* SELEKSI */
-    .seleksi-block { background: var(--abu1); border-radius: 16px; padding: 16px; margin-bottom: 16px; }
+    .seleksi-block { background: var(--abu1); border-radius: 16px; padding: 16px; margin: 0 0 16px 0; width: 100%; box-sizing: border-box; display: block; }
     .seleksi-block:last-child { margin-bottom: 0; }
     .seleksi-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .seleksi-header i { font-size: 1.2rem; color: var(--biru); }
@@ -195,7 +195,7 @@
 
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.9rem; }
-      .tentang-grid, .manfaat-grid { grid-template-columns: 1fr; }
+      .tentang-grid { grid-template-columns: 1fr; }
       .section { padding: 32px 0; }
       h2 { font-size: 1.5rem; }
     }
