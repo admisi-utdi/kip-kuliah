@@ -389,6 +389,16 @@
       </div>
     </div>
 
+    <!-- PROGRAM STUDI -->
+    <div class="wrap section">
+      <span class="label ungu">Pilihan Program Studi</span>
+      <h2 id="prodi-title">Program Studi yang Tersedia</h2>
+      <p class="sub" id="prodi-sub">UTDI membuka program studi unggulan di bidang teknologi dan bisnis digital.</p>
+      <div id="prodi-list" class="seleksi-block" style="margin-top:16px;">
+        <!-- Akan diisi oleh JavaScript -->
+      </div>
+    </div>
+      
     <!-- JADWAL -->
     <div class="wrap section">
       <span class="label merah">Lini Masa</span>
@@ -624,6 +634,20 @@
 
   var GAS_URL = 'https://script.google.com/macros/s/AKfycbzBgCvatK9Dj0iRds6mDWhq28OeUanr_5f8ePDqrwGbKy7mIaDGWA12z0dP3n_QOmdo/exec';
 
+  function renderProdi(data) {
+    var el = document.getElementById('prodi-list');
+    if (!el) return;
+    if (!data || data.length === 0) {
+      el.innerHTML = '<p style="color:var(--abu3);">Belum ada program studi yang tersedia.</p>';
+      return;
+    }
+    var html = '<div class="seleksi-header"><i class="ti ti-book"></i><span>Daftar Program Studi</span><span class="mode">' + data.length + ' Prodi</span></div>';
+    data.forEach(function(item) {
+      html += '<div class="seleksi-item"><div class="t">' + (item.nama||'') + '</div><div class="d">' + (item.deskripsi||'') + '</div></div>';
+    });
+    el.innerHTML = html;
+  }
+  
   function kipCallback(config) {
     renderHero(config.hero || {});
     renderJadwal(config.jadwal || []);
@@ -638,6 +662,7 @@
     }
     if (config.utdi)    renderUTDI(config.utdi);
     if (config.manfaat) renderManfaat(config.manfaat);
+    if (config.prodi) renderProdi(config.prodi);
     document.getElementById('loading').style.display = 'none';
     document.getElementById('app').style.display = 'block';
     applyScale();
