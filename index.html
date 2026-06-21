@@ -84,52 +84,53 @@
     .hero h1 span { color: var(--merah); }
     .hero .tagline { font-size: 1rem; font-family: var(--font); color: var(--abu3); max-width: 32rem; margin: 0 auto; line-height: 1.6; }
 
-    /* ===== KARTU KIP - DESAIN BARU (mirip gambar 2) ===== */
+    /* ===== KARTU KIP - DESAIN DIPERBAIKI ===== */
     .card-kip {
       width: 100%;
       max-width: 340px;
       margin: 28px auto 0;
       aspect-ratio: 1.58/1;
-      background: linear-gradient(145deg, #1a0a4a, #2d1a7a);
-      border-radius: 20px;
+      background: #0a1544; /* biru tua solid */
+      border-radius: 16px;
       padding: 24px 24px 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 16px 40px -8px rgba(19,3,88,0.4);
+      box-shadow: 0 16px 40px -8px rgba(0,0,0,0.5);
       border: 1px solid rgba(255,255,255,0.08);
     }
     .card-kip .brand {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.3);
       letter-spacing: 0.06em;
       text-align: right;
+      margin-bottom: 2px;
     }
     .card-kip .header-label {
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: rgba(255,255,255,0.5);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
     .card-kip .card-number {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: #fff;
-      letter-spacing: 0.06em;
-      margin: 4px 0 2px;
+      letter-spacing: 0.08em;
+      margin: 2px 0 4px;
     }
     .card-kip .validity {
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       font-weight: 500;
       color: rgba(255,255,255,0.6);
       margin-bottom: 8px;
     }
     .card-kip .name {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
       margin-bottom: 2px;
@@ -144,12 +145,12 @@
       font-size: 0.6rem;
       font-weight: 500;
       color: rgba(255,255,255,0.5);
+      margin-top: 2px;
     }
     .card-kip .footer-row {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-top: 8px;
+      justify-content: flex-end;
+      margin-top: 6px;
     }
     .card-kip .gpn {
       font-size: 0.5rem;
@@ -212,10 +213,10 @@
     .manfaat-item h3 { font-size: 1.0rem; font-weight: 700; color: var(--ungu); margin-bottom: 4px; }
     .manfaat-item p { font-size: 0.9rem; color: var(--abu3); line-height: 1.5; }
 
-    /* JADWAL — perbaiki agar bullet orange tidak terpotong */
+    /* JADWAL */
     .tl {
       position: relative;
-      padding-left: 32px; /* tambah padding biar bullet tidak mepet */
+      padding-left: 32px;
     }
     .tl::before {
       content: '';
@@ -365,7 +366,7 @@
       .wrap { padding: 0 16px; }
       .card-kip { max-width: 280px; padding: 20px; }
       .card-kip .card-number { font-size: 1.1rem; }
-      .card-kip .name { font-size: 0.95rem; }
+      .card-kip .name { font-size: 1rem; }
     }
 
     @media (max-width: 400px) {
@@ -407,7 +408,7 @@
       <p class="tagline" id="hero-tagline">Kuliah di bidang teknologi dan bisnis digital tanpa terkendala biaya.</p>
       <p class="hero-desc">Program KIP Kuliah memberikan kesempatan bagi lulusan SMA/SMK/MA yang memiliki potensi akademik baik dan keterbatasan ekonomi untuk menempuh pendidikan tinggi dengan dukungan biaya pendidikan serta bantuan biaya hidup.</p>
 
-      <!-- KARTU KIP DESAIN BARU -->
+      <!-- KARTU KIP - DESAIN DIPERBAIKI -->
       <div class="card-kip">
         <div class="shine"></div>
         <div class="brand">UTDI</div>
@@ -418,7 +419,6 @@
         <div class="nim">NIM: 14075621448372541546</div>
         <div class="kip-code">KIP: AWX378K</div>
         <div class="footer-row">
-          <div></div>
           <div class="gpn">GPN</div>
         </div>
         <div class="stripe"></div>
@@ -575,7 +575,7 @@
   </div>
 </div>
 
-<!-- STICKY BAR -->
+<!-- STICKY BAR & SCRIPT (sama seperti sebelumnya) -->
 <script>
   (function createSticky() {
     var bar = document.createElement('div');
@@ -594,7 +594,7 @@
   applyScale();
   window.addEventListener('resize', applyScale);
 
-  // --- RENDER FUNCTIONS (sama, dengan fallback URL) ---
+  // --- RENDER FUNCTIONS (tetap sama, fallback URL) ---
   function renderJadwal(data) {
     var el = document.getElementById('jadwal-list');
     if (!el) return;
