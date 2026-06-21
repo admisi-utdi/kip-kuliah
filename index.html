@@ -84,15 +84,15 @@
     .hero h1 span { color: var(--merah); }
     .hero .tagline { font-size: 1rem; font-family: var(--font); color: var(--abu3); max-width: 32rem; margin: 0 auto; line-height: 1.6; }
 
-    /* ===== KARTU KIP - DESAIN DIPERBAIKI ===== */
+    /* ===== KARTU KIP ===== */
     .card-kip {
       width: 100%;
       max-width: 340px;
       margin: 28px auto 0;
       aspect-ratio: 1.58/1;
-      background: #0a1544; /* biru tua solid */
+      background: #0a1544;
       border-radius: 16px;
-      padding: 24px 24px 20px;
+      padding: 20px 20px 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -100,67 +100,68 @@
       overflow: hidden;
       box-shadow: 0 16px 40px -8px rgba(0,0,0,0.5);
       border: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
     }
-    .card-kip .brand {
-      font-size: 0.6rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.06em;
-      text-align: right;
-      margin-bottom: 2px;
-    }
+
     .card-kip .header-label {
-      font-size: 0.5rem;
+      font-size: 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 4px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 6px;
     }
+
     .card-kip .card-number {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: #fff;
-      letter-spacing: 0.08em;
-      margin: 2px 0 4px;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
     }
+
     .card-kip .validity {
       font-size: 0.7rem;
       font-weight: 500;
       color: rgba(255,255,255,0.6);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
+
     .card-kip .name {
       font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .card-kip .kip-code {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
       margin-bottom: 2px;
     }
+
     .card-kip .nim {
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.5);
-      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 6px;
     }
-    .card-kip .kip-code {
-      font-size: 0.6rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.5);
-      margin-top: 2px;
-    }
+
     .card-kip .footer-row {
       display: flex;
       justify-content: flex-end;
-      margin-top: 6px;
     }
+
     .card-kip .gpn {
-      font-size: 0.5rem;
+      font-size: 0.55rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.35);
       letter-spacing: 0.08em;
       border: 1px solid rgba(255,255,255,0.15);
-      padding: 2px 10px;
+      padding: 2px 12px;
       border-radius: 4px;
     }
+
     .card-kip .stripe {
       position: absolute;
       left: 0;
@@ -169,6 +170,7 @@
       height: 4px;
       background: linear-gradient(90deg, var(--merah), var(--oranye), var(--mint), var(--biru));
     }
+
     .card-kip .shine {
       position: absolute;
       top: -30%;
@@ -364,8 +366,8 @@
       .section { padding: 32px 0; }
       h2 { font-size: 1.5rem; }
       .wrap { padding: 0 16px; }
-      .card-kip { max-width: 280px; padding: 20px; }
-      .card-kip .card-number { font-size: 1.1rem; }
+      .card-kip { max-width: 280px; padding: 16px 16px 12px; }
+      .card-kip .card-number { font-size: 1.2rem; }
       .card-kip .name { font-size: 1rem; }
     }
 
@@ -408,16 +410,15 @@
       <p class="tagline" id="hero-tagline">Kuliah di bidang teknologi dan bisnis digital tanpa terkendala biaya.</p>
       <p class="hero-desc">Program KIP Kuliah memberikan kesempatan bagi lulusan SMA/SMK/MA yang memiliki potensi akademik baik dan keterbatasan ekonomi untuk menempuh pendidikan tinggi dengan dukungan biaya pendidikan serta bantuan biaya hidup.</p>
 
-      <!-- KARTU KIP - DESAIN DIPERBAIKI -->
+      <!-- KARTU KIP - 100% MENIRU GAMBAR ASLI -->
       <div class="card-kip">
         <div class="shine"></div>
-        <div class="brand">UTDI</div>
         <div class="header-label">Kartu Indonesia Pintar Kuliah</div>
-        <div class="card-number">6013 0107 1394 8801</div>
+        <div class="card-number">6013010713948801</div>
         <div class="validity">07/17 – 07/22</div>
-        <div class="name">MAHASISWA UTDI</div>
-        <div class="nim">NIM: 14075621448372541546</div>
+        <div class="name">NAMA MAHASISWA</div>
         <div class="kip-code">KIP: AWX378K</div>
+        <div class="nim">NIM: 14075621448372541546</div>
         <div class="footer-row">
           <div class="gpn">GPN</div>
         </div>
@@ -575,7 +576,7 @@
   </div>
 </div>
 
-<!-- STICKY BAR & SCRIPT (sama seperti sebelumnya) -->
+<!-- STICKY BAR & SCRIPT -->
 <script>
   (function createSticky() {
     var bar = document.createElement('div');
@@ -594,7 +595,7 @@
   applyScale();
   window.addEventListener('resize', applyScale);
 
-  // --- RENDER FUNCTIONS (tetap sama, fallback URL) ---
+  // --- RENDER FUNCTIONS (sama seperti sebelumnya, dengan fallback URL) ---
   function renderJadwal(data) {
     var el = document.getElementById('jadwal-list');
     if (!el) return;
