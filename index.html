@@ -194,7 +194,7 @@
         <div class="stat"><div class="stat-num" id="h-s2">8 Sem</div><div class="stat-lbl" id="h-l2">Durasi beasiswa</div></div>
         <div class="stat"><div class="stat-num" id="h-s3">Rp0</div><div class="stat-lbl" id="h-l3">Biaya daftar</div></div>
       </div>
-      <a href="https://utdi.id/kip-kuliah" id="hero-btn" class="btn-primary" target="_blank">Daftar Sekarang <i class="ti ti-arrow-right"></i></a>
+      <a href="#" id="hero-btn" class="btn-primary" target="_blank">Daftar Sekarang <i class="ti ti-arrow-right"></i></a>
     </div>
 
     <!-- TENTANG -->
@@ -282,7 +282,7 @@
       <h2>Alur pendaftaran</h2>
       <p class="sub">Seluruh proses, dari awal sampai akhir, gratis</p>
       <div class="alur">
-        <div class="alur-item"><div class="alur-num">1</div><h4>Pendaftaran awal di UTDI</h4><p>Isi formulir di <a href="https://utdi.id/kip-kuliah" target="_blank">utdi.id/kip-kuliah</a>. Langkah pertama yang wajib.</p></div>
+        <div class="alur-item"><div class="alur-num">1</div><h4>Pendaftaran awal di UTDI</h4><p>Isi formulir di <a id="alur-link-1" href="#" target="_blank">utdi.id/kip-kuliah</a>. Langkah pertama yang wajib.</p></div>
         <div class="alur-item"><div class="alur-num">2</div><h4>Cek email &amp; WhatsApp</h4><p>Cek email/WA untuk Token Validation dan Bukti Daftar KIP (PDF). Di PDF ada link grup WA — masuk perlu approval admin.</p></div>
         <div class="alur-item"><div class="alur-num">3</div><h4>Pantau pembukaan jalur PTS Mandiri</h4><p>Ikuti info terkini di grup WA mengenai pembukaan jalur seleksi mandiri pemerintah.</p></div>
         <div class="alur-item"><div class="alur-num">4</div><h4>Daftar di Kemendikbud</h4><p>Setelah ada instruksi, daftar di <a href="https://kip-kuliah.kemdikbud.go.id/" target="_blank">kip-kuliah.kemdikbud.go.id</a> jalur mandiri PTS.</p></div>
@@ -307,11 +307,11 @@
           <div class="d" id="cta-desc">Jika kamu memiliki semangat belajar, prestasi, dan keinginan untuk berkembang di dunia teknologi, manfaatkan kesempatan melalui program KIP Kuliah di UTDI.</div>
         </div>
         <div class="seleksi-item">
-          <div class="d" id="cta-sub">Daftar sekarang di <a href="https://utdi.id/kip-kuliah" target="_blank" style="color:var(--biru);font-weight:600;">Form KIP Kuliah UTDI</a> dan pilih <strong style="color:var(--ungu)">Jalur KIP Kuliah</strong>.</div>
+          <div class="d" id="cta-sub">Daftar sekarang melalui PMB UTDI dan pilih <strong style="color:var(--ungu)">Jalur KIP Kuliah</strong>.</div>
         </div>
       </div>
       <div style="margin-top:20px;">
-        <a href="https://utdi.id/kip-kuliah" id="cta-btn" class="btn-primary" target="_blank">
+        <a href="#" id="cta-btn" class="btn-primary" target="_blank">
           <span id="cta-btn-teks">DAFTAR KIP KULIAH</span>
           <i class="ti ti-arrow-right"></i>
         </a>
@@ -348,7 +348,7 @@
     bar.className = 'sticky-bar';
     bar.id = 'sticky-bar-el';
     bar.innerHTML = '<div class="sticky-text"><strong>KIP Kuliah UTDI 2026</strong>Pendaftaran dibuka · Gratis</div>' +
-      '<a href="https://utdi.id/kip-kuliah" id="sticky-btn" class="btn-sticky" target="_blank">Daftar Sekarang</a>';
+      '<a href="#" id="sticky-btn" class="btn-sticky" target="_blank">Daftar Sekarang</a>';
     document.body.appendChild(bar);
   })();
 
@@ -416,8 +416,8 @@
     h('cta-desc',     c.deskripsi || '');
     h('cta-sub',      (c.sub||'').replace('Jalur KIP Kuliah','<strong style="color:var(--ungu)">Jalur KIP Kuliah</strong>'));
     s('cta-btn-teks', c.btn_teks || 'DAFTAR KIP KULIAH');
-    // Link: CONFIG_CTA.btn_link → CONFIG_HERO.link_daftar → fallback
-    var link = c.btn_link || heroLink || 'https://utdi.id/kip-kuliah';
+    // Selalu ambil dari CONFIG_HERO B13 (heroLink), abaikan cta.btn_link
+    var link = heroLink || 'https://utdi.id/kip-kuliah';
     ['cta-btn','sticky-btn'].forEach(function(id){
       var e = document.getElementById(id); if (e) e.href = link;
     });
@@ -474,10 +474,16 @@
     s('h-s1', h.stat_mahasiswa); s('h-l1', h.stat_label1);
     s('h-s2', h.stat_semester);  s('h-l2', h.stat_label2);
     s('h-s3', h.stat_biaya);     s('h-l3', h.stat_label3);
+    // Satu sumber kebenaran: CONFIG_HERO B13
     var link = h.link_daftar || 'https://utdi.id/kip-kuliah';
-    a('hero-btn','href',link); a('sticky-btn','href',link); a('cta-btn','href',link);
+    ['hero-btn','cta-btn','sticky-btn'].forEach(function(id){
+      a(id,'href',link);
+    });
     var btn = document.getElementById('hero-btn');
     if (btn && h.btn_teks) btn.innerHTML = h.btn_teks + ' <i class="ti ti-arrow-right"></i>';
+    // Update link di teks alur step 1
+    var alurLink = document.getElementById('alur-link-1');
+    if (alurLink) alurLink.href = link;
   }
 
   var GAS_URL = 'https://script.google.com/macros/s/AKfycbzBgCvatK9Dj0iRds6mDWhq28OeUanr_5f8ePDqrwGbKy7mIaDGWA12z0dP3n_QOmdo/exec';
@@ -486,13 +492,13 @@
     renderHero(config.hero || {});
     renderJadwal(config.jadwal || []);
     renderSyarat(config.syarat || []);
-    if (config.alur    && config.alur.length) renderAlur(config.alur);
-    // Satu sumber link: CONFIG_HERO B13 (link_daftar)
+    if (config.alur && config.alur.length) renderAlur(config.alur);
+    // Satu sumber link: CONFIG_HERO B13
     var heroLink = (config.hero && config.hero.link_daftar) || 'https://utdi.id/kip-kuliah';
     if (config.cta && config.cta.judul) {
       renderCTA(config.cta, heroLink);
     } else {
-      // Fallback: set semua tombol ke heroLink
+      // Fallback: semua tombol ke heroLink
       ['cta-btn','sticky-btn','hero-btn'].forEach(function(id){
         var e = document.getElementById(id); if (e) e.href = heroLink;
       });
